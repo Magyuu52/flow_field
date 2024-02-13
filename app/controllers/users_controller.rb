@@ -4,6 +4,15 @@ class UsersController < ApplicationController
   end
 
   def create
+    binding.pry
+    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirm, :introduction))
+    if @user.save
+      session[:user_id] = @user.id
+      flash[:notice] = "ユーザーの新規登録に成功しました"
+      redirect_to ('/')
+    else
+      render "new"
+    end
   end
 
   def show
