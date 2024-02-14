@@ -15,12 +15,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    if @user.update(params.permit(:name, :introduction, :password, :password_confim))
+      flash[:notice] = "アカウント情報を更新しました"
+      redirect_to action: :show
+    else
+      render "edit"
+    end
   end
 end
