@@ -1,2 +1,21 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section id="speakers-details">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="mt-5">User Details</h2>
+      <p>ユーザー情報</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <img src="1.jpg" alt="Speaker 1" class="img-fluid">
+      </div>
+      <div class="col-md-6">
+        <div class="details">
+          <h3>ユーザー名</h2>
+          <h2><%= @user.name %></h2>
+          <h3>自己紹介</h2>
+          <p><%= @user.introduction %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
