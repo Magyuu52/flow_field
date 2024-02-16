@@ -7,6 +7,15 @@
     <div class="form php-email-form">
       <%= form_with model: @user, url: users_path do |f| %> 
         <div class="row">
+          <div class="mb-2 d-flex align-items-center">
+            <%= f.label :name ,"アイコン画像" ,class:"me-5" %>
+            <% if @user.image.attached? %>
+              <%= image_tag(rails_blob_path(@user.image),:size => "70x70", class:"rounded-circle") %>
+            <% else %>
+              <%= image_tag("default_user.png", :size => "70x70") %>
+            <% end %>
+          </div>
+          <%= f.file_field :image, id:"item-image", class:"hidden mb-3" %>
           <div class="form-group col-md-6">
             <%= f.label :name ,"ユーザー名" ,class:"mb-3" %>
             <%= f.text_field :name, class:"form-control", value:"#{@user.name}" %>
