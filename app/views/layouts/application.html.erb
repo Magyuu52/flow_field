@@ -23,7 +23,7 @@
                 <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
                   <ul>
                     <li><a href="#">Drop Down 1</a></li>
-                    <li><a href="#">Drop Down 2</a></li>
+                    <li><%= link_to "ユーザー情報", user_path(@current_user) %></li>
                     <li><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li>
                     <li><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
                 </ul>
