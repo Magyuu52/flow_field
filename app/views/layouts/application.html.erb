@@ -20,7 +20,15 @@
         <% if @current_user %>
           <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-              <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+              <li class="dropdown">
+                <a href="#">
+                  <% if @current_user.image.attached? %>
+                    <%= image_tag(rails_blob_path(@current_user.image), :size => "40x40", class:"rounded-circle me-2") %>
+                  <% else %>
+                    <%= image_tag("default_user.png", :size => "40x40", class:"rounded-circle me-2") %>
+                  <% end %>
+                  <%= @current_user.name %>
+                </a>
                 <ul>
                   <li><a href="#">Drop Down 1</a></li>
                   <li><%= link_to "ユーザー情報", user_path(@current_user) %></li>
