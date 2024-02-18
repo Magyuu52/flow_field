@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update(params.permit(:name, :introduction, :password, :password_confirm, :image))
+    if @current_user.update(params.require(:user).permit(:name, :introduction, :password, :password_confirm, :image))
       flash[:notice] = "アカウント情報を更新しました"
       redirect_to action: :show
     else
