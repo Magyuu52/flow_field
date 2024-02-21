@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
       redirect_to :login_form
     end
   end
+
+  def forbid_login_user
+  end
 end
