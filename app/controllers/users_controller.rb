@@ -54,4 +54,7 @@ class UsersController < ApplicationController
     flash[:notice] = "ログアウトに成功しました"
     redirect_to ('/')
   end
+
+  def ensure_correct_user
+  end
 end
