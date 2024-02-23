@@ -1,0 +1,42 @@
+<section id="contact" class="section-bg">
+  <div class="container aos-init aos-animate" data-aos="fade-up">
+    <div class="section-header">
+      <h2 class="mt-5">User Edit</h2>
+      <p>ユーザー情報編集</p>
+    </div>
+    <div class="form php-email-form">
+      <%= form_with model: @user do |f| %> 
+        <div class="row">
+          <div class="mb-2 d-flex align-items-center">
+            <%= f.label :name ,"アイコン画像" ,class:"me-5" %>
+            <% if @current_user.image.attached? %>
+              <%= image_tag(rails_blob_path(@current_user.image),:size => "70x70", class:"rounded-circle") %>
+            <% else %>
+              <%= image_tag("default_user.png", :size => "70x70") %>
+            <% end %>
+          </div>
+          <%= f.file_field :image, id:"item-image", class:"hidden mb-3" %>
+          <div class="form-group col-md-6">
+            <%= f.label :name ,"ユーザー名" ,class:"mb-3" %>
+            <%= f.text_field :name, class:"form-control", value:"#{@current_user.name}" %>
+          </div>
+          <div class="form-group col-md-6 mt-3 mt-md-0">
+            <%= f.label :email ,"メールアドレス" ,class:"mb-3" %>
+            <%= f.text_field :email, class:"form-control", value:"#{@current_user.email}" %>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <%= f.label :password ,"パスワード" ,class:"mb-3" %>
+          <%= f.password_field :password, class:"form-control", value:"#{@current_user.password}" %>
+        </div>
+        <div class="form-group mt-3">
+          <%= f.label :introduction ,"自己紹介" ,class:"mb-3" %>
+          <%= f.text_area :introduction, class:"form-control", rows:"4", value:"#{@current_user.introduction}" %>
+        </div>
+        <div class="text-center mt-4">
+          <%= f.button :type => "submit" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

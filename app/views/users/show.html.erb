@@ -1,0 +1,28 @@
+<section id="speakers-details">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="mt-5">User Profile</h2>
+      <p>ユーザープロフィール</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <% if @user.image.attached? %>
+          <%= image_tag(rails_blob_path(@user.image),:size => "70x70",class:"rounded-circle") %>
+        <% else %>
+          <%= image_tag("default_user.png", :size => "70x70") %>
+        <% end %>
+      </div>
+      <div class="col-md-6">
+        <div class="details">
+          <% if @user.id == @current_user.id %>
+            <%= link_to "プロフィール編集", edit_user_path, class: "btn btn-danger py-2 px-4"%>
+          <% end %>
+          <h3>ユーザー名</h2>
+          <h2><%= @user.name %></h2>
+          <h3>自己紹介</h2>
+          <p><%= @user.introduction %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
