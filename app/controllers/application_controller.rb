@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user
     if @current_user == nil
       flash[:alret] = "ログインが必要です"
-      redirect_to :login_form
+      redirect_to('/login')
     end
   end
 
