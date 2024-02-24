@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'posts/index'
   get '/' => 'home#top'
 
   get resources :users, except: [:index, :destroy]
@@ -8,6 +7,8 @@ Rails.application.routes.draw do
   post 'logout' => 'users#logout'
 
   post 'guest_login' => 'guest_sessions#create'
+
+  resources :posts
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
