@@ -1,4 +1,5 @@
 <section id="speakers">
+  <% @posts.each do |post| %>
       <div class="container aos-init aos-animate" data-aos="fade-up">
         <div class="section-header">
           <h2>Event Speakers</h2>
@@ -18,4 +19,5 @@
           </div>
         </div>
       </div>
+    <% end %>
     </section>
