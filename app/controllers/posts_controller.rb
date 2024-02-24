@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @post = Post.new(params.require(:post).permit(:title, :spot_name, :content, :spot_image, flow_video))
   end
 
   def show
