@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.new(params.require(:post).permit(:title, :spot_name, :content, :spot_image, :flow_video))
     if @post.save
       flash[:notice] = "新規投稿の作成に成功しました"
-      redirect_to :posts_index
+      redirect_to :posts
     else
       render "new"
     end
