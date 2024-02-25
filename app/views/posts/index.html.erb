@@ -4,8 +4,8 @@
       <h2 class="mt-5">Spot Index</h2>
       <p>投稿スポット一覧</p>
     </div>
-    <% @posts.each do |post| %>
-      <div class="row">
+    <div class="row">
+      <% @posts.each do |post| %>
         <div class="col-lg-4 col-md-6">
           <div class="speaker aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <% if post.spot_image.attached? %>
@@ -21,8 +21,7 @@
             </div>
           </div>
         </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </section>

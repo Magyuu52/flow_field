@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(id: @current_user)
+    @posts = Post.all
   end
   
   def new
