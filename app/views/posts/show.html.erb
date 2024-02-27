@@ -13,6 +13,9 @@
       <% end %>
       </div>
       <div class="col-md-6">
+        <% if @post.user_id == @current_user.id %>
+          <%= link_to "編集", edit_post_path, class: "btn btn-danger px-4" %>
+        <% end %>
         <div class="details">
           <h4>投稿タイトル</h4>
           <h2><%= @post.title %></h2>
