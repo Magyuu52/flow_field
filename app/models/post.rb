@@ -3,6 +3,6 @@ class Post < ApplicationRecord
   has_one_attached :flow_video
 
   def user
-    return Post.find_by(id: self.id)
+    return User.find_by(id: self.user_id)
   end
 end
