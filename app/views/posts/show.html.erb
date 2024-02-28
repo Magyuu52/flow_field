@@ -27,5 +27,17 @@
     </div>
     <h4 class="mt-4">住所</h4>
     <h5><%= @post.address %></h5>
+    <div id="map"></div>
+
+    <script>
+      function initMap(){
+        let mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
+        let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: mapPosition
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
   </div>
 </section>
