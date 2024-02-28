@@ -52,8 +52,10 @@
                   <%= image_tag("default_spot.jpg", class:"img-fluid") %>
                 <% end %>
               </div>
-              <h4><%= post.title %></h4>
-              <p><%= post.content %></p>
+              <div class="d-flex justify-content-between">
+                <h4><%= post.title %></h4>
+                <p><%= post.content %></p>
+              </div>
             </div>
           </div>
         <% end %>
