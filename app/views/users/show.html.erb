@@ -41,21 +41,23 @@
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
         <% @user.posts.each do |post| %>
           <div class="row schedule-item">
-            <div class="col-md-2"><time><%= post.created_at %></time></div>
-              <div class="col-md-10">
-                <div class="speaker">
-                  <% if post.spot_image.attached? %>
-                    <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
-                  <% else %>
-                    <%= image_tag("default_spot.jpg", class:"img-fluid") %>
-                  <% end %>
-                </div>
-                <h4><%= post.title %></h4>
-                <p><%= post.content %></p>
+            <div class="col-md-2">
+              <time><%= post.created_at %></time>
+            </div>
+            <div class="col-md-10">
+              <div class="speaker">
+                <% if post.spot_image.attached? %>
+                  <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+                <% else %>
+                  <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                <% end %>
               </div>
+              <h4><%= post.title %></h4>
+              <p><%= post.content %></p>
             </div>
           </div>
         <% end %>
+      </div>
       <!-- End Post List 1 -->
 
       <!-- Post List 2 -->
