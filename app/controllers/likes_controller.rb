@@ -4,4 +4,8 @@ class LikesController < ApplicationController
     @like.save
     redirect_to post_path(params[:post_id]) 
   end
+
+  def destroy
+    
+  end
 end
