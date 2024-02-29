@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
 
+  post 'likes/:post_id/create' => 'likes#create'
+
   get resources :users, except: [:index, :destroy]
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
