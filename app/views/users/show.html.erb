@@ -67,16 +67,30 @@
 
       <!-- Post List 2 -->
       <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
-        <div class="row schedule-item">
-          <div class="col-md-2"><time>10:00 AM</time></div>
-          <div class="col-md-10">
-            <div class="speaker">
-              <img src="assets/img/speakers/1.jpg" alt="Brenden Legros">
+        <% @likes.each do |like| %>
+          <% post = Post.find_by(id: like.post_id) %>
+          <div class="row schedule-item">
+            <div class="col-md-2">
+              <time><%= post.created_at %></time>
             </div>
-            <h4>Libero corrupti explicabo itaque. <span>Brenden Legros</span></h4>
-            <p>Facere provident incidunt quos voluptas.</p>
+            <div class="col-md-10">
+              <div class="speaker">
+                <% if post.spot_image.attached? %>
+                  <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+                <% else %>
+                  <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                <% end %>
+              </div>
+              <div class="d-flex justify-content-between align-items-end">
+                <div class="contents-area">
+                  <h4><%= post.title %></h4>
+                  <p><%= post.content %></p>
+                </div>
+                <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
       <!-- End Post List 2 -->
     </div>
