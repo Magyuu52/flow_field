@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   has_one_attached :spot_image
   has_one_attached :flow_video
   validates :spot_image, blob: { content_type: :image }
+  validates :flow_video, blob: { content_type: :video }
   geocoded_by :address
   after_validation :geocode
   belongs_to :user
