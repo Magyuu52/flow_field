@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   validates :title, {presence: true, length: {maximum: 30}}
   validates :content, {presence: true, length: {maximum: 500}}
+  validates :address, presence: true
   has_one_attached :spot_image
   has_one_attached :flow_video
   geocoded_by :address
