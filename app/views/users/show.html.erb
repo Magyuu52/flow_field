@@ -69,6 +69,11 @@
       <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
         <% @likes.each do |like| %>
           <% post = Post.find_by(id: like.post_id) %>
+          <div class="row schedule-item">
+            <div class="col-md-2">
+              <time><%= post.created_at %></time>
+            </div>
+          </div>
         <% end %>
       </div>
       <!-- End Post List 2 -->
