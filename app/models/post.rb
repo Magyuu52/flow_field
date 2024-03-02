@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   validates :address, presence: true
   has_one_attached :spot_image
   has_one_attached :flow_video
+  validates :spot_image, blob: { content_type: :image }
   geocoded_by :address
   after_validation :geocode
   belongs_to :user
