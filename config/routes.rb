@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   post 'logout' => 'users#logout'
 
   post 'guest_login' => 'guest_sessions#create'
+
+  resources :posts
+  resources :posts do
+    resource :likes, only: [:create, :destroy]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

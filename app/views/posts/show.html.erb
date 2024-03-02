@@ -1,0 +1,80 @@
+<section id="speakers-details">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="mt-5">Spot Detail</h2>
+      <p>スポット情報</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+      <% if @post.spot_image.attached? %>
+        <%= image_tag(rails_blob_path(@post.spot_image), class:"img-fluid") %>
+      <% else %>
+        <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+      <% end %>
+      </div>
+      <div class="col-md-6">
+        <% if @post.user_id == @current_user.id %>
+          <%= link_to "編集", edit_post_path, class: "btn btn-danger px-4" %>
+          <%= link_to "削除", post_path, data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete}, class: "btn btn-danger px-4" %>
+        <% end %>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
+            <p>いいね!済み</p>
+          <% end %>
+        <% else %>
+          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
+            <p>いいね!</p>
+          <% end %>
+        <% end %>
+        <%= @likes_count %>
+        <div class="details">
+          <h4>投稿タイトル</h4>
+          <h2><%= @post.title %></h2>
+          <h4>詳細</h4>
+          <p><%= @post.content %></p>
+        </div>
+      </div>
+    </div>
+    <h4 class="mt-4">住所</h4>
+    <h5><%= @post.address %></h5>
+    <div id="map"></div>
+
+    <style>
+      #map {
+        height: 400px;
+        width: 600px;
+      }
+    </style>
+
+    <script>
+      function initMap(){
+        let mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
+        let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: mapPosition
+        });
+        let transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        let contentString = '【住所】<%= @post.address %>';
+        let infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+        let marker = new google.maps.Marker({
+          position: mapPosition,
+          map: map,
+          title: contentString
+        });
+
+        marker.addListener('click', function(){
+          infowindow.open(map, marker);
+        });
+      }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
+  </div>
+  <% if @post.flow_video.attached? %>
+    <video src="<%= rails_blob_path(@post.flow_video) %>" type="video/mp4" controls></video>
+  <% end %>
+</section>
