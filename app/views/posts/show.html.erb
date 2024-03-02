@@ -17,6 +17,15 @@
           <%= link_to "編集", edit_post_path, class: "btn btn-danger px-4" %>
           <%= link_to "削除", post_path, data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete}, class: "btn btn-danger px-4" %>
         <% end %>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
+            <p>いいね!済み</p>
+          <% end %>
+        <% else %>
+          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
+            <p>いいね!</p>
+          <% end %>
+        <% end %>
         <div class="details">
           <h4>投稿タイトル</h4>
           <h2><%= @post.title %></h2>
