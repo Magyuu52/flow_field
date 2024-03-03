@@ -6,6 +6,12 @@
     </div>
     <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+        <% if @users.exists? %>
+          <% @users.each do |user| %>
+          <% end %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
       </div>
     </div>
   <div>
