@@ -8,6 +8,19 @@
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
         <% if @users.exists? %>
           <% @users.each do |user| %>
+            <% if user.id != @current_user.id %>
+              <div class="row schedule-item">
+                <div class="col-md-10">
+                  <div class="speaker">
+                    <% if user.image.attached? %>
+                      <%= image_tag(rails_blob_path(user.image)) %>
+                    <% else %>
+                      <%= image_tag("default_user.png") %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
           <% end %>
         <% else %>
           <p>ユーザーはいません</p>
