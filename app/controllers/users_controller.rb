@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :login_form, :login]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
+  def index
+  end
+
   def new
     @user = User.new
   end
