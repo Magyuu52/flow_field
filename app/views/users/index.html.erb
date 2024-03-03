@@ -17,8 +17,20 @@
                     <%= image_tag("default_user.png") %>
                   <% end %>
                 </div>
-                <h4><%= user.name %></h4>
-                <p><%= user.introduction %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="contents-area">
+                    <h4><%= user.name %></h4>
+                    <p><%= user.introduction %></p>
+                  </div>
+                  <div class="contents-area">
+                    <%= link_to "プロフィールへ", user_path(user) %>
+                    <% if @current_user.following?(user) %>
+                      <%= link_to "フォロー済み", user_relationships_path(user.id), data: { "turbo-method": :delete } %>
+                    <% else %>
+                      <%= link_to "フォローする", user_relationships_path(user.id), data: { "turbo-method": :post } %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
           <% end %>
