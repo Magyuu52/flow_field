@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
 
-  get resources :users, except: [:index, :destroy]
+  get resources :users, except: [:destroy]
   resources :users do
     resource :relationships, only: [:create, :destroy]
     get 'followings' => 'relationships#followings', as: 'followings'
