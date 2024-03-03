@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :posts do
     resource :likes, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
