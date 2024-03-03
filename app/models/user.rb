@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def posts
     return Post.where(user_id: self.id)
   end
+
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
 end
