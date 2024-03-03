@@ -7,19 +7,21 @@
     <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
         <% @users.each do |user| %>
-          <div class="row schedule-item">
-            <div class="col-md-10">
-              <div class="speaker">
-                <% if user.image.attached? %>
-                  <%= image_tag(rails_blob_path(user.image)) %>
-                <% else %>
-                  <%= image_tag("default_user.png") %>
-                <% end %>
+          <% if user.id != @current_user.id %>
+            <div class="row schedule-item">
+              <div class="col-md-10">
+                <div class="speaker">
+                  <% if user.image.attached? %>
+                    <%= image_tag(rails_blob_path(user.image)) %>
+                  <% else %>
+                    <%= image_tag("default_user.png") %>
+                  <% end %>
+                </div>
+                <h4><%= user.name %></h4>
+                <p><%= user.introduction %></p>
               </div>
-              <h4><%= user.name %></h4>
-              <p><%= user.introduction %></p>
             </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
