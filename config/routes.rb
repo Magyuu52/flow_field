@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get '/' => 'home#top'
 
   get resources :users, except: [:index, :destroy]
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+  end
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
   post 'logout' => 'users#logout'
