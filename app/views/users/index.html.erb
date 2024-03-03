@@ -6,15 +6,17 @@
     </div>
     <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-        <div class="row schedule-item">
-          <div class="col-md-10">
-            <div class="speaker">
-              <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
+        <% @users.each do |user| %>
+          <div class="row schedule-item">
+            <div class="col-md-10">
+              <div class="speaker">
+                <img src="assets/img/speakers/2.jpg" alt="Hubert Hirthe">
+              </div>
+              <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
+              <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
             </div>
-            <h4>Et voluptatem iusto dicta nobis. <span>Hubert Hirthe</span></h4>
-            <p>Maiores dignissimos neque qui cum accusantium ut sit sint inventore.</p>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
   <div>
