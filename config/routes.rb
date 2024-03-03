@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get resources :users, except: [:index, :destroy]
   resources :users do
     resource :relationships, only: [:create, :destroy]
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
   end
   get 'login' => 'users#login_form'
   post 'login' => 'users#login'
@@ -14,8 +16,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :posts do
     resource :likes, only: [:create, :destroy]
-    get 'followings' => 'relationships#followings', as: 'followings'
-    get 'followers' => 'relationships#followers', as: 'followers'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
