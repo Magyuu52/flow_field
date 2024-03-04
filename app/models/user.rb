@@ -29,4 +29,7 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+
+  def self.search(search)
+  end
 end
