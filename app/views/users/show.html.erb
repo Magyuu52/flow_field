@@ -27,6 +27,12 @@
           <p>フォロワー数: <%= @user.followers.count %></p>
           <h3>ユーザー名</h2>
           <h2><%= @user.name %></h2>
+          <h3>経験年数</h3>
+          <% if @user.experience == "設定しない" || @user.experience == nil %>
+            <h2>未登録</h2>
+          <% else %>
+            <h2><%= @user.experience %></h2>
+          <% end %>
           <h3>自己紹介</h2>
           <p><%= @user.introduction %></p>
         </div>
