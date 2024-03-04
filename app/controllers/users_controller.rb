@@ -3,6 +3,10 @@ class UsersController < ApplicationController
   before_action :forbid_login_user, {only: [:new, :login_form, :login]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
+  def index
+    @users = User.all
+  end
+
   def new
     @user = User.new
   end
@@ -29,7 +33,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @current_user.update(params.require(:user).permit(:name, :introduction, :password, :image))
+    if @current_user.update(params.require(:user).permit(:name, :introduction, :password, :experience, :image))
       flash[:notice] = "アカウント情報を更新しました"
       redirect_to action: :show
     else

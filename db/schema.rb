@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_29_103356) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_04_110910) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,6 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_29_103356) do
     t.float "longitude"
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -65,6 +72,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_29_103356) do
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "experience"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
