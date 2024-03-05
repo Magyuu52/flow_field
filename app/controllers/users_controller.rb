@@ -61,6 +61,10 @@ class UsersController < ApplicationController
     redirect_to ('/')
   end
 
+  def search
+    @users = User.search(params[:keyword])
+  end
+
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:alret] = "アクセス権限がありません"
