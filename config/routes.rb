@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   resources :posts do
     resource :likes, only: [:create, :destroy]
+    collection do
+      get 'search' => 'posts#search'
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
