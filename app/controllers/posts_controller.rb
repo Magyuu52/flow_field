@@ -43,4 +43,7 @@ class PostsController < ApplicationController
     flash[:notice] = "「#{@post.title}」を削除しました"
     redirect_to :posts
   end
+
+  def search
+  end
 end
