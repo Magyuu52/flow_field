@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   belongs_to :user
-  has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def user
     return User.find_by(id: self.user_id)
