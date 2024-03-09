@@ -18,6 +18,7 @@
     </section>
     <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+        <h3>ユーザー数: <%= @users_count %>人</h3>
         <% @users.each do |user| %>
           <% if user.id != @current_user.id %>
             <div class="row schedule-item">
