@@ -9,9 +9,17 @@ class Post < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   belongs_to :user
-  has_many :favorites, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   def user
     return User.find_by(id: self.user_id)
+  end
+
+  def self.search(search)
+    if search != ""
+      Post.where(['title LIKE(?) OR spot_name LIKE(?) OR address LIKE(?) OR user_name LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+    else
+      Post.all
+    end
   end
 end

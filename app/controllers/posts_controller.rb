@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.where(user_id: @current_user.id)
+    @posts = Post.all
+    @posts_count = @posts.count
   end
   
   def new
@@ -10,6 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params.require(:post).permit(:title, :spot_name, :address, :content, :spot_image, :flow_video))
     @post.user_id = @current_user.id
+    @post.user_name = @current_user.name
     if @post.save
       flash[:notice] = "新規投稿の作成に成功しました"
       redirect_to :posts
@@ -42,5 +44,10 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:notice] = "「#{@post.title}」を削除しました"
     redirect_to :posts
+  end
+
+  def search
+    @searched_posts = Post.search(params[:keyword])
+    @searched_posts_count = @searched_posts.count
   end
 end

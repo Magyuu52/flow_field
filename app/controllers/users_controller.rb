@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @users_count = @users.count
   end
 
   def new
@@ -59,6 +60,11 @@ class UsersController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "ログアウトに成功しました"
     redirect_to ('/')
+  end
+
+  def search
+    @searched_users = User.search(params[:keyword])
+    @searched_users_count = @searched_users.count
   end
 
   def ensure_correct_user

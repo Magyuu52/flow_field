@@ -16,9 +16,9 @@
         <% end %>
       </div>
     </section>
-    <h3>スポット件数: <%= @posts_count %>件</h3>
+    <h3>スポット件数: <%= @searched_posts_count %>件</h3>
     <div class="row">
-      <% @posts.each do |post| %>
+      <% @searched_posts.each do |post| %>
         <div class="col-lg-4 col-md-6">
           <div class="speaker aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <%= link_to post do %>
