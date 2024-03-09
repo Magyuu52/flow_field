@@ -659,11 +659,11 @@ h6 {
   font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 12px 0px;
+  padding: 15px 0px;
   border-radius: 50px;
   transition: 0.5s;
   line-height: 1;
-  margin: 20px;
+  margin: 30px 20px 0px 20px;
   color: #fff;
   animation-delay: 0.8s;
   border: 2px solid #f82249;
@@ -675,13 +675,13 @@ h6 {
 }
 
 #hero .top-btn-login {
-  padding-left: 70px;
-  padding-right: 70px;
+  padding-left: 90px;
+  padding-right: 90px;
 }
 
 #hero .top-btn-guestlogin {
-  padding-left: 45px;
-  padding-right: 45px;
+  padding-left: 65px;
+  padding-right: 65px;
 }
 
 @keyframes pulsate-btn {
