@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    @posts_count = Post.all.count
   end
   
   def new
