@@ -5,8 +5,8 @@
     <% if @current_user %>
     <% else %>
       <div class="d-flex">
-        <%= link_to "ログインはこちら", login_path, class:"about-btn" %>
-        <%= link_to "ゲストログインはこちら", login_path, class:"about-btn" %>
+        <%= link_to "ログインはこちら", login_path, class:"top-btn top-btn-login" %>
+        <%= link_to "ゲストログインはこちら", login_path, class:"top-btn top-btn-guestlogin" %>
       </div>
     <% end %>
   </div>
