@@ -4,6 +4,7 @@
     <p class="mb-4 pb-0">FLOW FIELDでお気に入りのパルクールスポットを発見・投稿しよう！</p>
     <% if @current_user %>
     <% else %>
+      <%= link_to "新規登録してスポットを投稿する", new_user_path, class:"top-btn-new" %>
       <div class="d-flex">
         <%= link_to "ログインはこちら", login_path, class:"top-btn top-btn-login" %>
         <%= link_to "ゲストログインはこちら", login_path, class:"top-btn top-btn-guestlogin" %>
