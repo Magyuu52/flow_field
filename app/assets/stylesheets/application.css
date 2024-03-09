@@ -184,8 +184,8 @@ h6 {
   color: #f82249;
 }
 
-#header #logo h1 a,
-#header #logo h1 a:hover {
+#header #logo h1 ,
+#header #logo h1:hover {
   color: #fff;
 }
 
