@@ -64,6 +64,7 @@ class UsersController < ApplicationController
 
   def search
     @searched_users = User.search(params[:keyword])
+    @searched_users_count = @searched_users.count
   end
 
   def ensure_correct_user
