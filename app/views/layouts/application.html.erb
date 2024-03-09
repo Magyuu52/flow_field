@@ -15,7 +15,9 @@
     <header id="header" class="d-flex align-items-center header-scrolled">
       <div class="container-fluid container-xxl d-flex align-items-center">
         <div id="logo" class="me-auto">
-          <h1><a href="index.html" class="scrollto">The<span>Event</span></a></h1>
+          <%= link_to '/' do %>
+            <h1>FLOW <span>FIELD</span></h1>
+          <% end %>
         </div>
         <% if @current_user %>
           <nav id="navbar" class="navbar order-last order-lg-0">
