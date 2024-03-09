@@ -2,6 +2,12 @@
   <div class="hero-container aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
     <h1 class="mb-4 pb-0">FLOW<span> FIELD</span></h1>
     <p class="mb-4 pb-0">FLOW FIELDでお気に入りのパルクールスポットを発見・投稿しよう！</p>
-    <a href="#about" class="about-btn scrollto">About The Event</a>
+    <% if @current_user %>
+    <% else %>
+      <div class="d-flex">
+        <%= link_to "ログインはこちら", login_path, class:"about-btn" %>
+        <%= link_to "ゲストログインはこちら", login_path, class:"about-btn" %>
+      </div>
+    <% end %>
   </div>
 </section>
