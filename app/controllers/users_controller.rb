@@ -63,7 +63,7 @@ class UsersController < ApplicationController
   end
 
   def search
-    @users = User.search(params[:keyword])
+    @searched_users = User.search(params[:keyword])
   end
 
   def ensure_correct_user
