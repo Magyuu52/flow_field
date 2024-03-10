@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 gem "dotenv-rails"
 gem "geocoder"
 gem 'activestorage-validator'
+gem "i18n_generators"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
