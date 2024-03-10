@@ -64,7 +64,7 @@
               <time><%= post.created_at %></time>
             </div>
             <div class="col-md-10">
-              <div class="speaker">
+              <div class="post-item">
                 <% if post.spot_image.attached? %>
                   <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
                 <% else %>
@@ -94,7 +94,7 @@
               <time><%= post.created_at %></time>
             </div>
             <div class="col-md-10">
-              <div class="speaker">
+              <div class="post-item">
                 <% if post.spot_image.attached? %>
                   <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
                 <% else %>
