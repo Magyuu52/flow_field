@@ -61,7 +61,7 @@
         <% @user.posts.each do |post| %>
           <div class="row schedule-item">
             <div class="col-md-2">
-              <time><%= post.created_at %></time>
+              <time><%= l post.created_at, format: :long %></time>
             </div>
             <div class="col-md-10">
               <div class="post-item">
@@ -91,7 +91,7 @@
           <% post = Post.find_by(id: like.post_id) %>
           <div class="row schedule-item">
             <div class="col-md-2">
-              <time><%= post.created_at %></time>
+              <time><%= l post.created_at, format: :long %></time>
             </div>
             <div class="col-md-10">
               <div class="post-item">
