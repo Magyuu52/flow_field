@@ -24,14 +24,20 @@
       <h2 class="mt-3"><%= @user.name %></h2>
       <p><%= @user.introduction %></p>
       <div class="d-flex justify-content-between mt-5">
-        <p>フォロー数: <%= @user.followings.count %></p>
-        <p>フォロワー数: <%= @user.followers.count %></p>
-        <h3>経験年数</h3>
-        <% if @user.experience == "設定しない" || @user.experience == nil %>
-          <h2>未登録</h2>
-        <% else %>
-          <h2><%= @user.experience %></h2>
-        <% end %>
+        <div class="details-wrapper">
+          <p>フォロー数: <%= @user.followings.count %></p>
+        </div>
+        <div class="details-wrapper">
+          <p>フォロワー数: <%= @user.followers.count %></p>
+        </div>
+        <div class="details-wrapper">
+          <h3>経験年数</h3>
+          <% if @user.experience == "設定しない" || @user.experience == nil %>
+            <h2>未登録</h2>
+          <% else %>
+            <h2><%= @user.experience %>fceafa</h2>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
