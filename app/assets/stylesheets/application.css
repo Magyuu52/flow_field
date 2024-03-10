@@ -805,7 +805,9 @@ h6 {
 }
 
 #speakers-details {
-  padding: 60px 200px 20px 200px;
+  padding: 60px 60px 20px 60px;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
 #speakers-details .details h2 {
