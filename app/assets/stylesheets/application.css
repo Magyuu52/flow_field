@@ -956,6 +956,14 @@ h6 {
   margin: 0 10px 10px 0;
 }
 
+#schedule .schedule-item .post-item {
+  width: 90px;
+  height: 60px;
+  overflow: hidden;
+  float: left;
+  margin: 0 10px 10px 0;
+}
+
 #schedule .schedule-item .speaker img {
   height: 100%;
   transform: translateX(-50%);
