@@ -927,6 +927,11 @@ h6 {
   transition: ease-in-out 0.2s;
 }
 
+#schedule .tab-pane p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 #schedule .schedule-item {
   border-bottom: 1px solid #cad4f6;
   padding-top: 15px;
