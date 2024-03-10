@@ -25,15 +25,15 @@
       <p><%= @user.introduction %></p>
       <div class="d-flex justify-content-between mt-5">
         <div class="details-wrapper">
-          <p>フォロー数</p>
+          <p class="mb-1">フォロー数</p>
           <p><%= @user.followings.count %>人</p>
         </div>
         <div class="details-wrapper">
-          <p>フォロワー数</h4>
+          <p class="mb-1">フォロワー数</h4>
           <p><%= @user.followers.count %>人</p>
         </div>
         <div class="details-wrapper">
-          <p>経験年数</p>
+          <p class="mb-1">経験年数</p>
           <% if @user.experience == "設定しない" || @user.experience == nil %>
             <p>未登録</p>
           <% else %>
