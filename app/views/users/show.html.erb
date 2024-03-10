@@ -59,29 +59,31 @@
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
         <p>投稿数: <%= @user_posts_count %>件</p>
         <% @user.posts.each do |post| %>
-          <div class="row schedule-item">
+          <div class="schedule-item">
             <% if post.user.image.attached? %>
               <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
             <% else %>
               <%= image_tag("default_user.png", :size => "40x40") %>
             <% end %>
-            <div class="col-md-2">
-              <time><%= l post.created_at, format: :long %></time>
-            </div>
-            <div class="col-md-10">
-              <div class="post-item">
-                <% if post.spot_image.attached? %>
-                  <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
-                <% else %>
-                  <%= image_tag("default_spot.jpg", class:"img-fluid") %>
-                <% end %>
+            <div class="row">
+              <div class="col-md-2">
+                <time><%= l post.created_at, format: :long %></time>
               </div>
-              <div class="d-flex justify-content-between align-items-end">
-                <div class="contents-area">
-                  <h4><%= post.title %></h4>
-                  <p><%= post.content %></p>
+              <div class="col-md-10">
+                <div class="post-item">
+                  <% if post.spot_image.attached? %>
+                    <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+                  <% else %>
+                    <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                  <% end %>
                 </div>
-                <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+                <div class="d-flex justify-content-between align-items-end">
+                  <div class="contents-area">
+                    <h4><%= post.title %></h4>
+                    <p><%= post.content %></p>
+                  </div>
+                  <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+                </div>
               </div>
             </div>
           </div>
@@ -94,29 +96,31 @@
         <p>いいねした投稿数: <%= @user_liked_posts_count %>件</p>
         <% @user_liked_posts.each do |like| %>
           <% post = Post.find_by(id: like.post_id) %>
-          <div class="row schedule-item">
-          <% if post.user.image.attached? %>
-            <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
-          <% else %>
-            <%= image_tag("default_user.png", :size => "40x40") %>
-          <% end %>
-            <div class="col-md-2">
-              <time><%= l post.created_at, format: :long %></time>
-            </div>
-            <div class="col-md-10">
-              <div class="post-item">
-                <% if post.spot_image.attached? %>
-                  <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
-                <% else %>
-                  <%= image_tag("default_spot.jpg", class:"img-fluid") %>
-                <% end %>
+          <div class="schedule-item">
+            <% if post.user.image.attached? %>
+              <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
+            <% else %>
+              <%= image_tag("default_user.png", :size => "40x40") %>
+            <% end %>
+            <div class="row">
+              <div class="col-md-2">
+                <time><%= l post.created_at, format: :long %></time>
               </div>
-              <div class="d-flex justify-content-between align-items-end">
-                <div class="contents-area">
-                  <h4><%= post.title %></h4>
-                  <p><%= post.content %></p>
+              <div class="col-md-10">
+                <div class="post-item">
+                  <% if post.spot_image.attached? %>
+                    <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+                  <% else %>
+                    <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                  <% end %>
                 </div>
-                <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+                <div class="d-flex justify-content-between align-items-end">
+                  <div class="contents-area">
+                    <h4><%= post.title %></h4>
+                    <p><%= post.content %></p>
+                  </div>
+                  <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+                </div>
               </div>
             </div>
           </div>
