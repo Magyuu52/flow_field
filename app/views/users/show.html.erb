@@ -60,13 +60,16 @@
         <p>投稿数: <%= @user_posts_count %>件</p>
         <% @user.posts.each do |post| %>
           <div class="schedule-item">
-            <div class="d-flex mb-2">
+            <div class="d-flex mb-2 align-items-center">
               <% if post.user.image.attached? %>
                 <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
               <% else %>
                 <%= image_tag("default_user.png", :size => "40x40") %>
               <% end %>
-              <%= post.user.name %>
+              <div class="ms-3">
+                <p><%= post.user.name %></p>
+                <p><%= post.address %></p>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-2">
@@ -100,13 +103,16 @@
         <% @user_liked_posts.each do |like| %>
           <% post = Post.find_by(id: like.post_id) %>
           <div class="schedule-item">
-            <div class="d-flex mb-2">
+            <div class="d-flex mb-2 align-items-center">
               <% if post.user.image.attached? %>
                 <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
               <% else %>
                 <%= image_tag("default_user.png", :size => "40x40") %>
               <% end %>
-              <%= post.user.name %>
+              <div class="ms-3">
+                <p><%= post.user.name %></p>
+                <p><%= post.address %></p>
+              </div>
             </div>
             <div class="row">
               <div class="col-md-2">
