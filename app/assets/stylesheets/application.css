@@ -985,7 +985,12 @@ h6 {
 }
 
 #schedule .schedule-item p {
-  font-style: italic;
+  color: #152b79;
+  margin-bottom: 0;
+}
+
+#schedule .post-items-top p {
+  font-size: 12px;
   color: #152b79;
   margin-bottom: 0;
 }
