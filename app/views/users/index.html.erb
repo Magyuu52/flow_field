@@ -38,13 +38,13 @@
                       <p class="mb-1">フォロワー数: <%= user.followers.count %>人</p>
                     </div>
                   </div>
-                  <div class="d-flex flex-column contents-area">
-                    <%= link_to "プロフィールへ", user_path(user) %>
+                  <div class="d-flex flex-column contents-area text-center">
                     <% if @current_user.following?(user) %>
                       <%= link_to "フォロー済み", user_relationships_path(user.id), data: { "turbo-method": :delete } %>
                     <% else %>
                       <%= link_to "フォローする", user_relationships_path(user.id), data: { "turbo-method": :post } %>
                     <% end %>
+                    <%= link_to "プロフィールへ", user_path(user) %>
                   </div>
                 </div>
               </div>
