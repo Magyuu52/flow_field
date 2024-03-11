@@ -93,9 +93,9 @@
                     <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
                       <%= link_to "いいね済み", post_likes_path(post.id), data: { "turbo-method": :delete }, class:"btn-1 text-center" %>
                     <% else %>
-                      <%= link_to "いいねする", post_likes_path(post.id), data: { "turbo-method": :post } %>
+                      <%= link_to "いいねする", post_likes_path(post.id), data: { "turbo-method": :post }, class:"btn-2 text-center" %>
                     <% end %>
-                    <%= link_to "スポット詳細へ", post_path(post), class:"btn-1" %>
+                    <%= link_to "スポット詳細へ", post_path(post), class:"btn-1 mt-1" %>
                   </div>
                 </div>
               </div>
