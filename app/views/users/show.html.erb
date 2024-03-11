@@ -15,7 +15,7 @@
           <%= link_to "プロフィール編集", edit_user_path, class:"align-self-center btn-1" %>
         <% else %>
           <% if @current_user.following?(@user) %>
-            <%= link_to "フォロー済み", user_relationships_path(@user.id), data: { "turbo-method": :delete } %>
+            <%= link_to "フォロー済み", user_relationships_path(@user.id), data: { "turbo-method": :delete }, class:"align-self-center btn-1" %>
           <% else %>
             <%= link_to "フォローする", user_relationships_path(@user.id), data: { "turbo-method": :post } %>
           <% end %>
