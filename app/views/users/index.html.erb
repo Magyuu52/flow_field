@@ -33,7 +33,10 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="contents-area">
                     <h4><%= user.name %></h4>
-                    <p><%= user.introduction %></p>
+                    <div class="d-flex">
+                      <p class="mb-1">フォロー数: <%= user.followings.count %>人</p>
+                      <p class="mb-1">フォロワー数: <%= user.followers.count %>人</p>
+                    </div>
                   </div>
                   <div class="contents-area">
                     <%= link_to "プロフィールへ", user_path(user) %>
