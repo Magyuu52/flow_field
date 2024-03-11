@@ -62,13 +62,17 @@
         <% likes_count = Like.where(post_id: post.id).count %>
           <div class="schedule-item">
             <div class="d-flex mb-2 align-items-center">
-              <% if post.user.image.attached? %>
-                <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
-              <% else %>
-                <%= image_tag("default_user.png", :size => "40x40") %>
+              <%= link_to user_path(post.user) do %>
+                <% if post.user.image.attached? %>
+                  <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
+                <% else %>
+                  <%= image_tag("default_user.png", :size => "40x40") %>
+                <% end %>
               <% end %>
               <div class="ms-3 post-items-top">
-                <p><%= post.user.name %></p>
+                <%= link_to user_path(post.user) do %>
+                  <p><%= post.user.name %></p>
+                <% end %>
                 <p><%= post.address %></p>
               </div>
             </div>
@@ -113,13 +117,17 @@
           <% likes_count = Like.where(post_id: post.id).count %>
           <div class="schedule-item">
             <div class="d-flex mb-2 align-items-center">
-              <% if post.user.image.attached? %>
-                <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
-              <% else %>
-                <%= image_tag("default_user.png", :size => "40x40") %>
+              <%= link_to user_path(post.user) do %>
+                <% if post.user.image.attached? %>
+                  <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
+                <% else %>
+                  <%= image_tag("default_user.png", :size => "40x40") %>
+                <% end %>
               <% end %>
               <div class="ms-3 post-items-top">
-                <p><%= post.user.name %></p>
+                <%= link_to user_path(post.user) do %>
+                  <p><%= post.user.name %></p>
+                <% end %>
                 <p><%= post.address %></p>
               </div>
             </div>
