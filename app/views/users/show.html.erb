@@ -87,6 +87,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="contents-area">
                     <h4><%= post.title %></h4>
+                    <p>♡ <%= likes_count %></p>
                   </div>
                   <%= link_to "スポット詳細へ", post_path(post), class:"align-self-end btn-1" %>
                 </div>
@@ -130,7 +131,7 @@
                 <div class="d-flex justify-content-between align-items-end">
                   <div class="contents-area">
                     <h4><%= post.title %></h4>
-                    <p><%= likes_count %></p>
+                    <p>♡ <%= likes_count %></p>
                   </div>
                   <%= link_to "スポット詳細へ", post_path(post), class:"align-self-end btn-1" %>
                 </div>
