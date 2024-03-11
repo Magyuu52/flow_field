@@ -89,7 +89,14 @@
                     <h4><%= post.title %></h4>
                     <p>♡ <%= likes_count %></p>
                   </div>
-                  <%= link_to "スポット詳細へ", post_path(post), class:"align-self-end btn-1" %>
+                  <div class="d-flex flex-column">
+                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+                      <%= link_to "いいね済み", post_likes_path(post.id), data: { "turbo-method": :delete } %>
+                    <% else %>
+                      <%= link_to "いいねする", post_likes_path(post.id), data: { "turbo-method": :post } %>
+                    <% end %>
+                    <%= link_to "スポット詳細へ", post_path(post), class:"btn-1" %>
+                  </div>
                 </div>
               </div>
             </div>
