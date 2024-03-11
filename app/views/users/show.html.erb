@@ -59,6 +59,7 @@
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
         <p>投稿数: <%= @user_posts_count %>件</p>
         <% @user.posts.each do |post| %>
+        <% likes_count = Like.where(post_id: post.id).count %>
           <div class="schedule-item">
             <div class="d-flex mb-2 align-items-center">
               <% if post.user.image.attached? %>
@@ -86,7 +87,6 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="contents-area">
                     <h4><%= post.title %></h4>
-                    <p><%= post.content %></p>
                   </div>
                   <%= link_to "スポット詳細へ", post_path(post), class:"align-self-end btn-1" %>
                 </div>
@@ -102,6 +102,7 @@
         <p>いいねした投稿数: <%= @user_liked_posts_count %>件</p>
         <% @user_liked_posts.each do |like| %>
           <% post = Post.find_by(id: like.post_id) %>
+          <% likes_count = Like.where(post_id: post.id).count %>
           <div class="schedule-item">
             <div class="d-flex mb-2 align-items-center">
               <% if post.user.image.attached? %>
@@ -129,7 +130,7 @@
                 <div class="d-flex justify-content-between align-items-end">
                   <div class="contents-area">
                     <h4><%= post.title %></h4>
-                    <p><%= post.content %></p>
+                    <p><%= likes_count %></p>
                   </div>
                   <%= link_to "スポット詳細へ", post_path(post), class:"align-self-end btn-1" %>
                 </div>
