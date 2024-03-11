@@ -7,7 +7,7 @@
     <div class="details">
       <div class="d-flex justify-content-between">
         <% if @user.image.attached? %>
-          <%= image_tag(rails_blob_path(@user.image),:size => "90x90",class:"rounded-circle") %>
+          <%= image_tag(rails_blob_path(@user.image), :size => "90x90", class:"rounded-circle") %>
         <% else %>
           <%= image_tag("default_user.png", :size => "90x90") %>
         <% end %>
@@ -29,7 +29,7 @@
           <p><%= @user.followings.count %>人</p>
         </div>
         <div class="details-wrapper">
-          <p class="mb-1">フォロワー数</h4>
+          <p class="mb-1">フォロワー数</p>
           <p><%= @user.followers.count %>人</p>
         </div>
         <div class="details-wrapper">
