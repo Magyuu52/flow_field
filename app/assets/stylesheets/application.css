@@ -1369,6 +1369,7 @@ h6 {
   outline: none;
   font-size: 14px;
   border-radius: 50px;
+  min-width: 80px;
 }
 
 #subscribe button:hover {
