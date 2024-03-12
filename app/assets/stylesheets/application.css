@@ -948,6 +948,11 @@ h6 {
   transition: ease-in-out 0.2s;
 }
 
+#schedule .tab-pane h3 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
 #schedule .tab-pane p {
   font-size: 18px;
   font-weight: bold;
