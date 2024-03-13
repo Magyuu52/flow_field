@@ -754,6 +754,7 @@ h6 {
 
 #speakers .post-details-top {
   height: 50px;
+  padding: 0 5px;
 }
 
 #speakers .speaker {
