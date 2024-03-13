@@ -44,7 +44,11 @@
               <% end %>
               <div class="details">
                 <h3><%= post.title %></h3>
-                <p><%= post.spot_name %></p>
+                <% if post.spot_name.present? %>
+                  <p><%= post.spot_name %></p>
+                <% else %>
+                  <p><%= post.address %></p>
+                <% end %>
                 <div class="social">
                 </div>
               </div>
