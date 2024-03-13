@@ -28,7 +28,10 @@
                 <% else %>
                   <%= image_tag("default_user.png", :size => "40x40") %>
                 <% end %>
-                <p><%= post.user.name %></p>
+                <div class="d-flex flex-column">
+                  <p><%= post.user.name %></p>
+                  <p><%= post.created_at %></p>
+                </div>
               </div>
             <% end %>
           </div>
