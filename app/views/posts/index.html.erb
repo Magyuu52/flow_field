@@ -30,7 +30,7 @@
                 <% end %>
                 <div class="d-flex flex-column ms-2">
                   <p><%= post.user.name %></p>
-                  <p><%= post.created_at %></p>
+                  <time><%= l post.created_at, format: :long %></time>
                 </div>
               </div>
             <% end %>
