@@ -6,11 +6,14 @@
     </div>
     <div class="d-flex align-items-center post-details-top">
       <%= link_to user_path(@post.user) do %>
-        <% if @post.user.image.attached? %>
-          <%= image_tag(rails_blob_path(@post.user.image),:size => "40x40",class:"rounded-circle") %>
-        <% else %>
-          <%= image_tag("default_user.png", :size => "40x40") %>
-        <% end %>
+        <div class="d-flex align-items-center">
+          <% if @post.user.image.attached? %>
+            <%= image_tag(rails_blob_path(@post.user.image),:size => "40x40",class:"rounded-circle") %>
+          <% else %>
+            <%= image_tag("default_user.png", :size => "40x40") %>
+          <% end %>
+          <p class="ms-2"><%= @post.user.name %></p>
+        </div>
       <% end %> 
     </div>         
     <div class="row">
