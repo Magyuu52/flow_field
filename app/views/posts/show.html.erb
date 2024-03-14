@@ -4,7 +4,7 @@
       <h2 class="mt-5">Spot Detail</h2>
       <p>スポット情報</p>
     </div>
-    <div class="d-flex align-items-center post-details-top">
+    <div class="d-flex align-items-center justify-content-between post-details-top">
       <%= link_to user_path(@post.user) do %>
         <div class="d-flex align-items-center">
           <% if @post.user.image.attached? %>
