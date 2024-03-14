@@ -832,6 +832,10 @@ h6 {
   margin-bottom: 10px;
 }
 
+#speakers-details .post-details-top {
+  height: 60px;
+}
+
 #speakers-details .details-wrapper p {
   text-align: center;
   font-size: 20px;
