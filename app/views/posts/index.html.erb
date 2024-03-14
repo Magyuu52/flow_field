@@ -34,10 +34,15 @@
                 </div>
               </div>
             <% end %>
-            <div class="align-items-center d-flex">
-              <span class="fa fa-thumbs-up fa-lg"></span>
-              <p class="ms-2 fs-4"><%= post.likes_count %></p>
-            </div>
+            <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+              <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
+                <div class="align-items-center d-flex">
+                  <span class="fa fa-thumbs-up fa-lg"></span>
+                  <p class="ms-2 fs-4"><%= post.likes_count %></p>
+                </div>
+              <% end %>
+            <% else %>
+            <% end %>
           </div>
           <div class="speaker aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <%= link_to post do %>
