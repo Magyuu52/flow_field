@@ -36,16 +36,18 @@
           <div id="map"></div>
         </div>
       </div>
-      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-        <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
-          <p>いいね!済み</p>
+      <div class="d-flex mt-3">
+        <p class="me-5 fs-5">いいね数: <%= @post.likes_count %></p>
+        <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
+            <p>いいね!済み</p>
+          <% end %>
+        <% else %>
+          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
+            <p>いいね!</p>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
-          <p>いいね!</p>
-        <% end %>
-      <% end %>
-      <%= @likes_count %>
+      </div>
         <h4>詳細</h4>
         <p><%= @post.content %></p>
       <h4 class="mt-4">住所</h4>
