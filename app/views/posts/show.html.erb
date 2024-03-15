@@ -4,54 +4,54 @@
       <h2 class="mt-5">Spot Detail</h2>
       <p>スポット情報</p>
     </div>
-    <div class="d-flex align-items-center justify-content-between post-details-top">
-      <%= link_to user_path(@post.user) do %>
-        <div class="d-flex align-items-center">
-          <% if @post.user.image.attached? %>
-            <%= image_tag(rails_blob_path(@post.user.image),:size => "40x40",class:"rounded-circle") %>
-          <% else %>
-            <%= image_tag("default_user.png", :size => "40x40") %>
-          <% end %>
-          <p class="ms-2"><%= @post.user.name %></p>
-        </div>
-      <% end %> 
-      <div class="d-flex">
-        <% if @post.user_id == @current_user.id %>
-          <%= link_to "編集", edit_post_path, class: "btn-1" %>
-          <%= link_to "削除", post_path, data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete}, class: "btn-2" %>
-        <% end %>
-      </div>
-    </div>         
-    <div class="row">
-      <div class="col-md-6">
-      <% if @post.spot_image.attached? %>
-        <%= image_tag(rails_blob_path(@post.spot_image), class:"img-fluid") %>
-      <% else %>
-        <%= image_tag("default_spot.jpg", class:"img-fluid") %>
-      <% end %>
-      </div>
-      <div class="col-md-6">
-        <div id="map"></div>
-      </div>
-    </div>
-    <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-      <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
-        <p>いいね!済み</p>
-      <% end %>
-    <% else %>
-      <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
-        <p>いいね!</p>
-      <% end %>
-    <% end %>
-    <%= @likes_count %>
     <div class="details">
-      <h4>投稿タイトル</h4>
-      <h2><%= @post.title %></h2>
-      <h4>詳細</h4>
-      <p><%= @post.content %></p>
+      <div class="d-flex align-items-center justify-content-between post-details-top">
+        <%= link_to user_path(@post.user) do %>
+          <div class="d-flex align-items-center">
+            <% if @post.user.image.attached? %>
+              <%= image_tag(rails_blob_path(@post.user.image),:size => "40x40",class:"rounded-circle") %>
+            <% else %>
+              <%= image_tag("default_user.png", :size => "40x40") %>
+            <% end %>
+            <p class="ms-2"><%= @post.user.name %></p>
+          </div>
+        <% end %> 
+        <div class="d-flex">
+          <% if @post.user_id == @current_user.id %>
+            <%= link_to "編集", edit_post_path, class: "btn-1" %>
+            <%= link_to "削除", post_path, data: { turbo_confirm: "本当に削除しますか？", turbo_method: :delete}, class: "btn-2" %>
+          <% end %>
+        </div>
+      </div>         
+      <div class="row">
+        <div class="col-md-6">
+        <% if @post.spot_image.attached? %>
+          <%= image_tag(rails_blob_path(@post.spot_image), class:"img-fluid") %>
+        <% else %>
+          <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+        <% end %>
+        </div>
+        <div class="col-md-6">
+          <div id="map"></div>
+        </div>
+      </div>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
+          <p>いいね!済み</p>
+        <% end %>
+      <% else %>
+        <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
+          <p>いいね!</p>
+        <% end %>
+      <% end %>
+      <%= @likes_count %>
+        <h4>投稿タイトル</h4>
+        <h2><%= @post.title %></h2>
+        <h4>詳細</h4>
+        <p><%= @post.content %></p>
+      <h4 class="mt-4">住所</h4>
+      <h5><%= @post.address %></h5>
     </div>
-    <h4 class="mt-4">住所</h4>
-    <h5><%= @post.address %></h5>
   </div>
   <% if @post.flow_video.attached? %>
     <video src="<%= rails_blob_path(@post.flow_video) %>" type="video/mp4" controls></video>
