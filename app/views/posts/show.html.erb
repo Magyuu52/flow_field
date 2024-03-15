@@ -39,13 +39,9 @@
       <div class="d-flex mt-3">
         <p class="me-5 fs-5">いいね数: <%= @post.likes_count %></p>
         <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
-          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :delete } do %>
-            <p>いいね!済み</p>
-          <% end %>
+          <%= link_to "いいね済み", post_likes_path(@post.id), data: { "turbo-method": :delete }, class:"btn-1 ms-4" %>
         <% else %>
-          <%= link_to post_likes_path(@post.id), data: { "turbo-method": :post } do %>
-            <p>いいね!</p>
-          <% end %>
+          <%= link_to "いいねする", post_likes_path(@post.id), data: { "turbo-method": :post }, class:"btn-2 ms-4" %>
         <% end %>
       </div>
         <h4>詳細</h4>
