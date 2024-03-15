@@ -836,6 +836,11 @@ h6 {
   border-left: 3px solid #112363;
 }
 
+#speakers-details .details video {
+  height: 400px;
+  width: 80%;
+}
+
 #speakers-details .post-details-top {
   height: 60px;
 }
