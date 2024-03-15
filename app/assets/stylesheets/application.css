@@ -913,6 +913,11 @@ h6 {
   #schedule .nav-tabs a {
     padding: 8px 50px;
   }
+
+  #map {
+    height: 340px;
+    margin-top: 20px;
+  }
 }
 
 @media (max-width: 480px) {
