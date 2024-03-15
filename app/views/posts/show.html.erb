@@ -52,11 +52,14 @@
       <% else %>
         <p>コメントはありません</p>
       <% end %>
+      <h2 class="mt-3 fs-5"><span class="me-3"></span>フロー動画</h2>
+      <% if @post.flow_video.attached? %>
+        <video class="mt-3" src="<%= rails_blob_path(@post.flow_video) %>" type="video/mp4" controls></video>
+      <% else %>
+        <p>動画はありません</p>
+      <% end %>
     </div>
   </div>
-  <% if @post.flow_video.attached? %>
-    <video src="<%= rails_blob_path(@post.flow_video) %>" type="video/mp4" controls></video>
-  <% end %>
 </section>
 <script>
   function initMap(){
