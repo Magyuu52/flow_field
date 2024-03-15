@@ -4,7 +4,7 @@
       <h2 class="mt-5">User Profile</h2>
       <p>ユーザープロフィール</p>
     </div>
-    <div class="details">
+    <div class="details user-plofile-area">
       <div class="d-flex justify-content-between">
         <% if @user.image.attached? %>
           <%= image_tag(rails_blob_path(@user.image), :size => "90x90", class:"rounded-circle") %>
