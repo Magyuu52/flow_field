@@ -832,6 +832,10 @@ h6 {
   margin-bottom: 0px;
 }
 
+#speakers-details .details span {
+  border-left: 3px solid #112363;
+}
+
 #speakers-details .post-details-top {
   height: 60px;
 }

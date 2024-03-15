@@ -44,9 +44,9 @@
           <%= link_to "いいねする", post_likes_path(@post.id), data: { "turbo-method": :post }, class:"btn-2 ms-4" %>
         <% end %>
       </div>
-      <h2 class="mt-3 fs-5"><span class="border-start border-4 me-3"></span>住所</h2>
+      <h2 class="mt-3 fs-5"><span class="me-3"></span>住所</h2>
       <p><%= @post.address %></p>
-      <h2 class="mt-3 fs-5"><span class="border-start border-4 me-3"></span>スポットへのコメント</h2>
+      <h2 class="mt-3 fs-5"><span class="me-3"></span>スポットへのコメント</h2>
       <% if @post.content.present? %>
         <p><%= @post.content %></p>
       <% else %>
