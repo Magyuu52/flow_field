@@ -841,6 +841,11 @@ h6 {
   width: 80%;
 }
 
+#speakers-details .separator {
+  height: 60px;
+  background-color: #112363;
+}
+
 #speakers-details .post-details-top {
   height: 60px;
 }
