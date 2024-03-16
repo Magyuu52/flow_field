@@ -26,8 +26,10 @@
       <div class="d-flex justify-content-between mt-5">
         <span class="separator"></span>
         <div class="details-wrapper">
-          <p class="mb-1">フォロー数</p>
-          <p><%= @user.followings.count %>人</p>
+          <%= link_to user_followings_path(@user) do %>
+            <p class="mb-1">フォロー数</p>
+            <p><%= @user.followings.count %>人</p>
+          <% end %>
         </div>
         <span class="separator"></span>
         <div class="details-wrapper">
