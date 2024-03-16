@@ -44,6 +44,7 @@
               <li><%= link_to "ユーザー", users_path %></li>
               <li><%= link_to "スポット", posts_path %></li>
             </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>
           <%= link_to "新規スポット投稿", new_post_path, class:"buy-tickets scrollto" %>
         <% else %>
@@ -53,6 +54,7 @@
               <li><%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post } %></li>
               <li><%= link_to "ログイン", login_path %></li>
             </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
           </nav>
         <% end %>
       </div>
