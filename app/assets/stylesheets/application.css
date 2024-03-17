@@ -634,7 +634,8 @@ h6 {
 #hero .top-btn-new {
   color: #fff;
   background: #f82249;
-  padding: 15px 120px;
+  width: 400px;
+  padding: 15px;
   border-radius: 50px;
   border: 2px solid #f82249;
   transition: all ease-in-out 0.3s;
@@ -642,6 +643,12 @@ h6 {
   line-height: 1;
   font-size: 14px;
   white-space: nowrap;
+}
+
+@media (max-width: 991px) {
+  #hero .top-btn-new {
+    width: 100%;
+  }
 }
 
 #hero .top-btn-new:hover {
@@ -659,14 +666,15 @@ h6 {
   font-size: 14px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 15px 0px;
+  padding: 15px;
   border-radius: 50px;
   transition: 0.5s;
   line-height: 1;
-  margin: 30px 20px 0px 20px;
+  margin-top: 30px;
   color: #fff;
   animation-delay: 0.8s;
   border: 2px solid #f82249;
+  width: 400px;
 }
 
 #hero .top-btn:hover {
@@ -674,14 +682,16 @@ h6 {
   color: #fff;
 }
 
-#hero .top-btn-login {
-  padding-left: 90px;
-  padding-right: 90px;
+@media (max-width: 991px) {
+  #hero .top-btn {
+    width: 100%;
+  }
 }
 
-#hero .top-btn-guestlogin {
-  padding-left: 65px;
-  padding-right: 65px;
+@media (max-width: 991px) {
+  #hero .footer-btn-area {
+    width: 100%;
+  }
 }
 
 @keyframes pulsate-btn {
