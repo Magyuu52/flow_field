@@ -11,7 +11,7 @@
           <%= link_to "ゲストログインはこちら", login_path, class:"top-btn" %>
       </div>
     <% end %>
-    <section id="subscribe">
+    <section id="search-form">
       <h3 class="mt-5">キーワードでスポットを検索してみよう！</h3>
       <div class="container aos-init aos-animate mt-3" data-aos="zoom-in">
         <%= form_with(url: search_posts_path, local: true, method: :get ) do |f| %>

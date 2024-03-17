@@ -1342,17 +1342,17 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Subscribe Section
+# search-form Section
 --------------------------------------------------------------*/
-#subscribe {
+#search-form {
   padding: 0px 60px 40px 60px;
-  background: url(../img/subscribe-bg.jpg) center center no-repeat;
+  background: url(../img/search-form-bg.jpg) center center no-repeat;
   background-size: cover;
   overflow: hidden;
   position: relative;
 }
 
-#subscribe:before {
+#search-form:before {
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1361,23 +1361,23 @@ h6 {
 }
 
 @media (min-width: 1024px) {
-  #subscribe {
+  #search-form {
     background-attachment: fixed;
   }
 }
 
-#subscribe .section-header h2,
-#subscribe p {
+#search-form .section-header h2,
+#search-form p {
   color: #fff;
 }
 
-#subscribe h3 {
+#search-form h3 {
   color: #fff;
   font-size: 25px;
   font-weight: bold;
 }
 
-#subscribe input {
+#search-form input {
   background: #fff;
   color: #060c22;
   border: 0;
@@ -1389,12 +1389,12 @@ h6 {
 }
 
 @media (min-width: 767px) {
-  #subscribe input {
+  #search-form input {
     min-width: 400px;
   }
 }
 
-#subscribe button {
+#search-form button {
   border: 0;
   padding: 9px 25px;
   cursor: pointer;
@@ -1407,12 +1407,12 @@ h6 {
   min-width: 80px;
 }
 
-#subscribe button:hover {
+#search-form button:hover {
   background: #e0072f;
 }
 
 @media (max-width: 460px) {
-  #subscribe button {
+  #search-form button {
     margin-top: 10px;
   }
 }
