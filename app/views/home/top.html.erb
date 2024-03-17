@@ -11,5 +11,17 @@
         <%= link_to "ゲストログインはこちら", login_path, class:"top-btn top-btn-guestlogin" %>
       </div>
     <% end %>
+    <section id="subscribe">
+      <div class="container aos-init aos-animate mt-3" data-aos="zoom-in">
+        <%= form_with(url: search_posts_path, local: true, method: :get ) do |f| %>
+          <div class="row">
+            <div class="col-lg-6 col-md-10 d-flex">
+              <%= f.text_field :keyword, class:"form-control border border-dark-subtle", placeholder:"投稿者、スポット名、タイトル、住所" %>
+              <%= f.button "検索", :type => "submit", class:"ms-2" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
   </div>
 </section>
