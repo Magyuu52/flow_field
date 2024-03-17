@@ -52,7 +52,7 @@
     </div>
   </div>
 </section>
-<section id="schedule" class="section-with-bg">
+<section id="table" class="section-with-bg">
   <div class="container aos-init aos-animate" data-aos="fade-up">
     <ul class="nav nav-tabs aos-init aos-animate" role="tablist" data-aos="fade-up" data-aos-delay="100">
       <li class="nav-item me-4" role="presentation">
@@ -68,7 +68,7 @@
         <p>投稿数: <%= @user_posts_count %>件</p>
         <% @user.posts.each do |post| %>
         <% likes_count = Like.where(post_id: post.id).count %>
-          <div class="schedule-item">
+          <div class="table-item">
             <div class="d-flex mb-2 align-items-center">
               <%= link_to user_path(post.user) do %>
                 <% if post.user.image.attached? %>
@@ -137,7 +137,7 @@
         <% @user_liked_posts.each do |like| %>
           <% post = Post.find_by(id: like.post_id) %>
           <% likes_count = Like.where(post_id: post.id).count %>
-          <div class="schedule-item">
+          <div class="table-item">
             <div class="d-flex mb-2 align-items-center">
               <%= link_to user_path(post.user) do %>
                 <% if post.user.image.attached? %>

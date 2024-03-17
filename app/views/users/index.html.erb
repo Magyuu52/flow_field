@@ -1,4 +1,4 @@
-<section id="schedule" class="section-with-bg">
+<section id="table" class="section-with-bg">
   <div class="container aos-init aos-animate" data-aos="fade-up">
     <div class="section-header">
       <h2 class="mt-5">User List</h2>
@@ -21,7 +21,7 @@
         <h3>ユーザー数: <%= @users_count %>人</h3>
         <% @users.each do |user| %>
           <% if user.id != @current_user.id %>
-            <div class="schedule-item">
+            <div class="table-item">
               <div class="speaker">
                 <% if user.image.attached? %>
                   <%= image_tag(rails_blob_path(user.image)) %>
