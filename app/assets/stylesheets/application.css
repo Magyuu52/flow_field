@@ -785,10 +785,6 @@ h6 {
   opacity: 0.8;
 }
 
-#speakers .not-liked {
-  color: #112363;
-}
-
 #speakers .speaker {
   position: relative;
   overflow: hidden;
@@ -1830,4 +1826,8 @@ h6 {
   margin: auto;
   position: absolute;
   bottom: 8px;
+}
+
+.not-liked {
+  color: #112363;
 }
