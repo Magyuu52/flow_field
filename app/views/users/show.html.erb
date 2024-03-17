@@ -99,7 +99,21 @@
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="contents-area">
                     <h4><%= post.title %></h4>
-                    <p>♡ <%= likes_count %></p>
+                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+                      <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
+                        <div class="align-items-center d-flex">
+                          <span class="fa fa-thumbs-up fa-lg"></span>
+                          <p class="ms-2 fs-4"><%= post.likes_count %></p>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <%= link_to post_likes_path(post.id), data: { "turbo-method": :post } do %>
+                        <div class="align-items-center d-flex not-liked">
+                          <span class="fa fa-thumbs-up fa-lg"></span>
+                          <p class="ms-2 fs-4"><%= post.likes_count %></p>
+                        </div>
+                      <% end %>
+                    <% end %>
                   </div>
                   <div class="d-flex flex-column">
                     <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
