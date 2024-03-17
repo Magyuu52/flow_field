@@ -1705,6 +1705,10 @@ h6 {
   border-bottom: 2px solid #f82249;
 }
 
+#footer .footer-top span {
+  color: #f82249;
+}
+
 #footer .footer-top .footer-links {
   margin-bottom: 30px;
 }
