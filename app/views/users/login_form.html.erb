@@ -1,10 +1,10 @@
-<section id="contact" class="section-bg">
+<section id="form" class="section-bg">
   <div class="container aos-init aos-animate" data-aos="fade-up">
     <div class="section-header">
       <h2 class="mt-5">login</h2>
       <p>ログイン</p>
     </div>
-    <div class="form php-email-form">
+    <div class="form form-content-area">
       <%= form_with model: @user, url: login_path do |f| %> 
         <div class="form-group mt-3">
           <%= f.label :email ,"メールアドレス" ,class:"mb-3" %>
