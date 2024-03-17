@@ -74,36 +74,36 @@
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
-          <div class="col-lg-4 footer-info">
-          <%= link_to '/' do %>
-            <p>FLOW <span>FIELD</span></p>
-          <% end %>
-          <p>flow fieldはパルクールのスポットを検索・投稿するアプリケーションです。パルクールは主に「スポット」と呼ばれる周囲の環境を利用して練習を行います。どのような環境でも自由にできることを前提としているため、街中・公園・森・岩場など、いかなる環境もスポットになります。flow fieldでは、みんなの投稿から新たなスポットを見つけたり、スポットを投稿して共有することが可能となります。</p>
+          <% if @current_user %>
+            <div class="col-lg-4 footer-info">
+            <%= link_to '/' do %>
+              <p>FLOW <span>FIELD</span></p>
+            <% end %>
+            <p>flow fieldはパルクールのスポットを検索・投稿するアプリケーションです。パルクールは主に「スポット」と呼ばれる周囲の環境を利用して練習を行います。どのような環境でも自由にできることを前提としているため、街中・公園・森・岩場など、いかなる環境もスポットになります。flow fieldでは、みんなの投稿から新たなスポットを見つけたり、スポットを投稿して共有することが可能となります。</p>
+            </div>
+            <div class="col-lg-4 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "フォロワー一覧", user_followers_path(@current_user) %></li>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー情報", user_path(@current_user) %></li>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li></li>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 footer-links">
+              <h4>Useful Links</h4>
+              <ul>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー一覧", users_path %></li>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "スポット一覧", posts_path %></li>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "新規スポット投稿", new_post_path%></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
+                <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              </ul>
+            </div>
           </div>
-
-          <div class="col-lg-4 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "フォロワー一覧", user_followers_path(@current_user) %></li>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー情報", user_path(@current_user) %></li>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li></li>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー一覧", users_path %></li>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "スポット一覧", posts_path %></li>
-              <li><i class="bi bi-chevron-right"></i><%= link_to "新規スポット投稿", new_post_path%></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-        </div>
+        <% else %>
+        <% end %>
       </div>
     </div>
 
