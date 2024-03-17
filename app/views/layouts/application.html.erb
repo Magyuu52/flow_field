@@ -85,11 +85,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bi bi-chevron-right"></i><%= link_to "フォロワー一覧", user_followers_path(@current_user) %></li>
+              <li><i class="bi bi-chevron-right"></i><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
+              <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー情報", user_path(@current_user) %></li>
+              <li><i class="bi bi-chevron-right"></i><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li></li>
+              <li><i class="bi bi-chevron-right"></i><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
             </ul>
           </div>
 
