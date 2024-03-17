@@ -1365,6 +1365,12 @@ h6 {
   color: #fff;
 }
 
+#subscribe h3 {
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 #subscribe input {
   background: #fff;
   color: #060c22;
