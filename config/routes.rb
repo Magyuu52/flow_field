@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get '/' => 'home#top'
+  get 'about' => 'home#about'
 
   resources :users, except: [:destroy] do
     resource :relationships, only: [:create, :destroy]
