@@ -80,9 +80,9 @@ h6 {
 }
 
 /*--------------------------------------------------------------
-# Back to top button
+# Position held button
 --------------------------------------------------------------*/
-.back-to-top {
+.position-held-btn {
   color: #fff;
   position: fixed;
   visibility: hidden;
@@ -97,12 +97,12 @@ h6 {
   transition: all 0.4s;
 }
 
-.back-to-top:hover {
+.position-held-btn:hover {
   background: #f94a6a;
   color: #fff;
 }
 
-.back-to-top.active {
+.position-held-btn.active {
   visibility: visible;
   opacity: 1;
 }
