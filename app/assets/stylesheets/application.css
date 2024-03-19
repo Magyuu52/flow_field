@@ -1078,12 +1078,22 @@ h6 {
   padding: 60px 0;
 }
 
-#venue h4 {
+#venue h4, h5 {
   font-weight: bold;
 }
 
 #venue p {
   color: #112363;
+}
+
+#venue .btn {
+  font-size: 15px;
+  border-radius: 50px;
+  padding: 10px;
+  transition: all 0.2s;
+  background-color: #f82249;
+  color: #fff;
+  width: 75%;
 }
 
 #venue .container-fluid {
