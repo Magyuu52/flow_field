@@ -1078,6 +1078,10 @@ h6 {
   padding: 60px 0;
 }
 
+#venue h4 {
+  font-weight: bold;
+}
+
 #venue p {
   color: #112363;
 }
