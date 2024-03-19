@@ -1096,6 +1096,26 @@ h6 {
   width: 75%;
 }
 
+@media (min-width: 120px) {
+  #venue .btn-area-sm {
+    display: block;
+  }
+
+  #venue .btn-area-lg {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  #venue .btn-area-sm {
+    display: none;
+  }
+
+  #venue .btn-area-lg {
+    display: block;
+  }
+}
+
 #venue .container-fluid {
   margin-bottom: 3px;
 }
