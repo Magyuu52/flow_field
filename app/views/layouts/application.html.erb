@@ -94,6 +94,7 @@
               <div class="col-lg-4 footer-links">
                 <h4>メニュー</h4>
                 <ul>
+                  <li><i class="bi bi-chevron-right"></i><%= link_to "アプリについて", about_path %></li>
                   <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー一覧", users_path %></li>
                   <li><i class="bi bi-chevron-right"></i><%= link_to "スポット一覧", posts_path %></li>
                   <li><i class="bi bi-chevron-right"></i><%= link_to "新規スポット投稿", new_post_path%></li>
@@ -110,6 +111,7 @@
             <div class="col-lg-6 footer-links">
               <h4>メニュー</h4>
               <ul>
+                <li><i class="bi bi-chevron-right"></i><%= link_to "アプリについて", about_path %></li>
                 <li><i class="bi bi-chevron-right"></i><%= link_to "新規登録", new_user_path %></li>
                 <li><i class="bi bi-chevron-right"></i><%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post } %></li>
                 <li><i class="bi bi-chevron-right"></i><%= link_to "ログイン", login_path %></li>
