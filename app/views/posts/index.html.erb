@@ -17,6 +17,8 @@
       </div>
     </section>
     <h3>スポット件数: <%= @posts_count %>件</h3>
+    <%= link_to '新着順', posts_path(latest: "true") %>
+    <%= link_to '古い順', posts_path(old: "true") %>
     <div class="row">
       <% @posts.each do |post| %>
         <div class="col-lg-4 col-md-6">
