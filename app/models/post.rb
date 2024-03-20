@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  scope :latest, -> { order(created_at: :desc) }
   validates :title, {presence: true, length: {maximum: 30}}
   validates :content, {presence: true, length: {maximum: 500}}
   validates :address, presence: true
