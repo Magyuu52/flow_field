@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   scope :latest, -> { order(created_at: :desc) }
   scope :old, -> { order(created_at: :asc) }
+  scope :most_favorited, -> { includes(:liked_users).sort_by { |x| x.liked_users.includes(:likes).size }.reverse }
   validates :title, {presence: true, length: {maximum: 30}}
   validates :content, {presence: true, length: {maximum: 500}}
   validates :address, presence: true
