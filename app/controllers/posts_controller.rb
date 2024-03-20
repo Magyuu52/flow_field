@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.latest
+    if params[:old]
+      @posts = Post.old
+    else
+      @posts = Post.latest
+    end
     @posts_count = @posts.count
   end
   
