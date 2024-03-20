@@ -1,0 +1,75 @@
+ja:
+  activerecord:
+    models:
+      active_storage/attachment: アクティブなストレージ/アタッチメント  #g
+      active_storage/blob: アクティブなストレージ/BLOB  #g
+      active_storage/variant_record: アクティブなストレージ/バリアント レコード  #g
+      like: のように  #g
+      post: 役職  #g
+      relationship: 関係  #g
+      user: ユーザー  #g
+
+    attributes:
+      active_storage/attachment:
+        blob: :activerecord.models.blob  #g
+        name: 名前  #g
+        record: :activerecord.models.record  #g
+        record_type: レコードタイプ  #g
+
+      active_storage/blob:
+        attachments: 添付ファイル  #g
+        byte_size: バイトサイズ  #g
+        checksum: チェックサム  #g
+        content_type: コンテンツタイプ  #g
+        filename: ファイル名  #g
+        key: 鍵  #g
+        metadata: メタデータ  #g
+        preview_image_attachment: :activerecord.models.preview_image_attachment  #g
+        preview_image_blob: :activerecord.models.preview_image_blob  #g
+        service_name: サービス名  #g
+        variant_records: バリアントレコード  #g
+
+      active_storage/variant_record:
+        blob: :activerecord.models.blob  #g
+        image_attachment: :activerecord.models.image_attachment  #g
+        image_blob: :activerecord.models.image_blob  #g
+        variation_digest: バリエーションダイジェスト  #g
+
+      like:
+        post: :activerecord.models.post  #g
+        user: :activerecord.models.user  #g
+
+      post:
+        address: 住所  #g
+        content: コンテンツ  #g
+        flow_video_attachment: :activerecord.models.flow_video_attachment  #g
+        flow_video_blob: :activerecord.models.flow_video_blob  #g
+        latitude: 緯度  #g
+        likes: いいね！  #g
+        longitude: 経度  #g
+        price: 価格  #g
+        spot_image_attachment: :activerecord.models.spot_image_attachment  #g
+        spot_image_blob: :activerecord.models.spot_image_blob  #g
+        spot_name: スポット名  #g
+        title: タイトル  #g
+        user: :activerecord.models.user  #g
+        user_name: ユーザー名  #g
+
+      relationship:
+        followed: :activerecord.models.followed  #g
+        follower: :activerecord.models.follower  #g
+
+      user:
+        email: Eメール  #g
+        experience: 経験  #g
+        favorites: お気に入り  #g
+        followers: フォロワー  #g
+        followings: フォロー中  #g
+        image_attachment: :activerecord.models.image_attachment  #g
+        image_blob: :activerecord.models.image_blob  #g
+        introduction: 導入  #g
+        name: 名前  #g
+        password: パスワード  #g
+        posts: 投稿  #g
+        relationships: 人間関係  #g
+        reverse_of_relationships: 関係の逆転  #g

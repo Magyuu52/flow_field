@@ -1,77 +1,129 @@
-<section id="speakers-details">
+<section id="details">
   <div class="container">
     <div class="section-header">
       <h2 class="mt-5">User Profile</h2>
       <p>ユーザープロフィール</p>
     </div>
-    <div class="row">
-      <div class="col-md-6">
+    <div class="contents-area user-plofile">
+      <div class="d-flex justify-content-between">
         <% if @user.image.attached? %>
-          <%= image_tag(rails_blob_path(@user.image),:size => "70x70",class:"rounded-circle") %>
+          <%= image_tag(rails_blob_path(@user.image), :size => "90x90", class:"rounded-circle") %>
         <% else %>
-          <%= image_tag("default_user.png", :size => "70x70") %>
+          <%= image_tag("default_user.png", :size => "90x90") %>
+        <% end %>
+        <% if @user.id == @current_user.id %>
+          <%= link_to "プロフィール編集", edit_user_path, class:"align-self-center btn-1" %>
+        <% else %>
+          <% if @current_user.following?(@user) %>
+            <%= link_to "フォロー済み", user_relationships_path(@user.id), data: { "turbo-method": :delete }, class:"align-self-center btn-1" %>
+          <% else %>
+            <%= link_to "フォローする", user_relationships_path(@user.id), data: { "turbo-method": :post }, class:"align-self-center btn-2" %>
+          <% end %>
         <% end %>
       </div>
-      <div class="col-md-6">
-        <div class="details">
-          <% if @user.id == @current_user.id %>
-            <%= link_to "プロフィール編集", edit_user_path, class: "btn btn-danger py-2 px-4"%>
-          <% else %>
-            <% if @current_user.following?(@user) %>
-              <%= link_to "フォロー済み", user_relationships_path(@user.id), data: { "turbo-method": :delete } %>
-            <% else %>
-              <%= link_to "フォローする", user_relationships_path(@user.id), data: { "turbo-method": :post } %>
-            <% end %>
+      <h2 class="mt-3"><%= @user.name %></h2>
+      <p><%= @user.introduction %></p>
+      <div class="d-flex justify-content-between mt-5">
+        <span class="separator"></span>
+        <div class="details-wrapper">
+          <%= link_to user_followings_path(@user) do %>
+            <p class="mb-1">フォロー数</p>
+            <p><%= @user.followings.count %>人</p>
           <% end %>
-          <p>フォロー数: <%= @user.followings.count %></p>
-          <p>フォロワー数: <%= @user.followers.count %></p>
-          <h3>ユーザー名</h2>
-          <h2><%= @user.name %></h2>
-          <h3>経験年数</h3>
-          <% if @user.experience == "設定しない" || @user.experience == nil %>
-            <h2>未登録</h2>
-          <% else %>
-            <h2><%= @user.experience %></h2>
-          <% end %>
-          <h3>自己紹介</h2>
-          <p><%= @user.introduction %></p>
         </div>
+        <span class="separator"></span>
+        <div class="details-wrapper">
+          <%= link_to user_followers_path(@user) do %>
+            <p class="mb-1">フォロワー数</p>
+            <p><%= @user.followers.count %>人</p>
+          <% end %>
+        </div>
+        <span class="separator"></span>
+        <div class="details-wrapper">
+          <p class="mb-1">経験年数</p>
+          <% if @user.experience == "設定しない" || @user.experience == nil %>
+            <p>未登録</p>
+          <% else %>
+            <p><%= @user.experience %></p>
+          <% end %>
+        </div>
+        <span class="separator"></span>
       </div>
     </div>
   </div>
 </section>
-<section id="schedule" class="section-with-bg">
+<section id="table" class="section-with-bg">
   <div class="container aos-init aos-animate" data-aos="fade-up">
     <ul class="nav nav-tabs aos-init aos-animate" role="tablist" data-aos="fade-up" data-aos-delay="100">
-      <li class="nav-item" role="presentation">
-        <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab" aria-selected="true">Day 1</a>
+      <li class="nav-item me-4" role="presentation">
+        <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab" aria-selected="true">作成した投稿</a>
       </li>
       <li class="nav-item" role="presentation">
-        <a class="nav-link" href="#day-2" role="tab" data-bs-toggle="tab" aria-selected="false" tabindex="-1">Day 2</a>
+        <a class="nav-link" href="#day-2" role="tab" data-bs-toggle="tab" aria-selected="false" tabindex="-1">いいねした投稿</a>
       </li>
     </ul>
     <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
       <!-- Post List 1 -->
       <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
+        <p>投稿数: <%= @user_posts_count %>件</p>
         <% @user.posts.each do |post| %>
-          <div class="row schedule-item">
-            <div class="col-md-2">
-              <time><%= post.created_at %></time>
-            </div>
-            <div class="col-md-10">
-              <div class="speaker">
-                <% if post.spot_image.attached? %>
-                  <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+        <% likes_count = Like.where(post_id: post.id).count %>
+          <div class="table-item">
+            <div class="d-flex mb-2 align-items-center">
+              <%= link_to user_path(post.user) do %>
+                <% if post.user.image.attached? %>
+                  <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
                 <% else %>
-                  <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                  <%= image_tag("default_user.png", :size => "40x40") %>
                 <% end %>
+              <% end %>
+              <div class="ms-3 post-items-top">
+                <%= link_to user_path(post.user) do %>
+                  <p><%= post.user.name %></p>
+                <% end %>
+                <p><%= post.address %></p>
               </div>
-              <div class="d-flex justify-content-between align-items-end">
-                <div class="contents-area">
-                  <h4><%= post.title %></h4>
-                  <p><%= post.content %></p>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <time><%= l post.created_at, format: :long %></time>
+              </div>
+              <div class="col-md-10">
+                <div class="post-item">
+                  <% if post.spot_image.attached? %>
+                    <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+                  <% else %>
+                    <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                  <% end %>
                 </div>
-                <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="contents-area">
+                    <h4><%= post.title %></h4>
+                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+                      <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
+                        <div class="align-items-center d-flex">
+                          <span class="fa fa-thumbs-up fa-lg"></span>
+                          <p class="ms-2 fs-4"><%= post.likes_count %></p>
+                        </div>
+                      <% end %>
+                    <% else %>
+                      <%= link_to post_likes_path(post.id), data: { "turbo-method": :post } do %>
+                        <div class="align-items-center d-flex not-liked">
+                          <span class="fa fa-thumbs-up fa-lg"></span>
+                          <p class="ms-2 fs-4"><%= post.likes_count %></p>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+                      <%= link_to "いいね済み", post_likes_path(post.id), data: { "turbo-method": :delete }, class:"btn-1 text-center" %>
+                    <% else %>
+                      <%= link_to "いいねする", post_likes_path(post.id), data: { "turbo-method": :post }, class:"btn-2 text-center" %>
+                    <% end %>
+                    <%= link_to "スポット詳細へ", post_path(post), class:"btn-1 mt-1" %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -81,26 +133,52 @@
 
       <!-- Post List 2 -->
       <div role="tabpanel" class="col-lg-9  tab-pane fade" id="day-2">
-        <% @likes.each do |like| %>
+        <p>いいねした投稿数: <%= @user_liked_posts_count %>件</p>
+        <% @user_liked_posts.each do |like| %>
           <% post = Post.find_by(id: like.post_id) %>
-          <div class="row schedule-item">
-            <div class="col-md-2">
-              <time><%= post.created_at %></time>
-            </div>
-            <div class="col-md-10">
-              <div class="speaker">
-                <% if post.spot_image.attached? %>
-                  <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+          <% likes_count = Like.where(post_id: post.id).count %>
+          <div class="table-item">
+            <div class="d-flex mb-2 align-items-center">
+              <%= link_to user_path(post.user) do %>
+                <% if post.user.image.attached? %>
+                  <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
                 <% else %>
-                  <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                  <%= image_tag("default_user.png", :size => "40x40") %>
                 <% end %>
+              <% end %>
+              <div class="ms-3 post-items-top">
+                <%= link_to user_path(post.user) do %>
+                  <p><%= post.user.name %></p>
+                <% end %>
+                <p><%= post.address %></p>
               </div>
-              <div class="d-flex justify-content-between align-items-end">
-                <div class="contents-area">
-                  <h4><%= post.title %></h4>
-                  <p><%= post.content %></p>
+            </div>
+            <div class="row">
+              <div class="col-md-2">
+                <time><%= l post.created_at, format: :long %></time>
+              </div>
+              <div class="col-md-10">
+                <div class="post-item">
+                  <% if post.spot_image.attached? %>
+                    <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+                  <% else %>
+                    <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+                  <% end %>
                 </div>
-                <%= link_to "スポット詳細へ", post_path(post), class:"btn btn-danger px-2" %>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="contents-area">
+                    <h4><%= post.title %></h4>
+                    <p>♡ <%= likes_count %></p>
+                  </div>
+                  <div class="d-flex flex-column">
+                    <% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+                      <%= link_to "いいね済み", post_likes_path(post.id), data: { "turbo-method": :delete }, class:"btn-1 text-center" %>
+                    <% else %>
+                      <%= link_to "いいねする", post_likes_path(post.id), data: { "turbo-method": :post }, class:"btn-2 text-center" %>
+                    <% end %>
+                    <%= link_to "スポット詳細へ", post_path(post), class:"btn-1 mt-1" %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

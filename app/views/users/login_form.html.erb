@@ -1,10 +1,10 @@
-<section id="contact" class="section-bg">
+<section id="form" class="section-bg">
   <div class="container aos-init aos-animate" data-aos="fade-up">
     <div class="section-header">
       <h2 class="mt-5">login</h2>
       <p>ログイン</p>
     </div>
-    <div class="form php-email-form">
+    <div class="form form-content-area">
       <%= form_with model: @user, url: login_path do |f| %> 
         <div class="form-group mt-3">
           <%= f.label :email ,"メールアドレス" ,class:"mb-3" %>
@@ -15,9 +15,11 @@
           <%= f.password_field :password, class:"form-control", placeholder:"パスワードを入力" %>
         </div>
         <div class="text-center mt-4">
-          <%= f.button "Login", :type => "submit" %>
+          <%= f.button "ログインする", :type => "submit" %>
         </div>
       <% end %>
     </div>
+    <p class="mt-5 mb-1">※アカウントをお持ちでない方は<%= link_to "新規登録", new_user_path %>をご利用ください</p>
+    <p class="mt-1">※アカウントを作成せずに始めたい方は<%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post } %>をご利用ください</p>
   </div>
 </section>

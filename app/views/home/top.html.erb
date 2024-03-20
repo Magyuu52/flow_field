@@ -1,8 +1,29 @@
-<section id="hero">
-  <div class="hero-container aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-    <h1 class="mb-4 pb-0">The Annual<br><span>Marketing</span> Conference</h1>
-    <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
-    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
-    <a href="#about" class="about-btn scrollto">About The Event</a>
+<section id="top">
+  <div class="top-container aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+    <h1 class="mb-4 pb-0">FLOW<span> FIELD</span></h1>
+    <p class="mb-5 pb-0">FLOW FIELDでお気に入りのパルクールスポットを発見・投稿しよう！</p>
+    <% if @current_user %>
+      <%= link_to "スポットを投稿する", new_post_path, class:"top-btn-new" %>
+    <% else %>
+      <%= link_to "新規登録してスポットを投稿する", new_user_path, class:"top-btn-new" %>
+      <div class="d-flex footer-btn-area">
+          <%= link_to "ログインはこちら", login_path, class:"top-btn me-4" %>
+          <%= link_to "ゲストログインはこちら", login_path, class:"top-btn" %>
+      </div>
+    <% end %>
+    <section id="search-form">
+      <h3 class="mt-5">キーワードでスポットを検索してみよう！</h3>
+      <div class="container aos-init aos-animate mt-3" data-aos="zoom-in">
+        <%= form_with(url: search_posts_path, local: true, method: :get ) do |f| %>
+          <div class="row">
+            <div class="col-lg-6 col-md-10 d-flex">
+              <%= f.text_field :keyword, class:"form-control border border-dark-subtle", placeholder:"投稿者、スポット名、タイトル、住所" %>
+              <%= f.button "検索", :type => "submit", class:"ms-2" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </section>
   </div>
 </section>
+<%= link_to "flow_fieldとは", about_path, class:"position-held-btn d-flex align-items-center justify-content-center active" %>
