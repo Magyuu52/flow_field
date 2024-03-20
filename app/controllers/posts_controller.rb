@@ -3,6 +3,8 @@ class PostsController < ApplicationController
     @posts = Post.latest
     if params[:old]
       @posts = Post.old
+    elsif params[:most_favorited]
+      @posts = Post.most_favorited
     else
       @posts = Post.latest
     end
