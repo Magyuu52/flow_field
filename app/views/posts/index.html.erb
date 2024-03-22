@@ -68,11 +68,7 @@
               <% end %>
               <div class="post-details-bottom">
                 <h3><%= post.title %></h3>
-                <% if post.spot_name.present? %>
-                  <p><%= post.spot_name %></p>
-                <% else %>
-                  <p><%= post.address %></p>
-                <% end %>
+                <p><%= post.address %></p>
               </div>
             <% end %>
           </div>
