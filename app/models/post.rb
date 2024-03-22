@@ -25,7 +25,7 @@ class Post < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Post.where(['title LIKE(?) OR spot_name LIKE(?) OR address LIKE(?) OR user_name LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      Post.where(['title LIKE(?) OR address LIKE(?) OR user_name LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Post.all
     end
