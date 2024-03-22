@@ -713,9 +713,19 @@ h6 {
   font-weight: bold;
 }
 
+#spots .condition-btn-area {
+  width: 220px;
+}
+
 #spots .selected-condition{
   pointer-events: none;
   color: #000;
+}
+
+#spots .separator {
+  width: 1.5px;
+  height: 18px;
+  background-color: #000;
 }
 
 #spots .post-details-top {
