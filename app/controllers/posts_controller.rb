@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :spot_name, :address, :content, :spot_image, :flow_video))
+    @post = Post.new(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video))
     @post.user_id = @current_user.id
     @post.user_name = @current_user.name
     if @post.save
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.update(params.require(:post).permit(:title, :spot_name, :address, :content, :spot_image, :flow_video))
+    if @post.update(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video))
       flash[:notice] = "「#{@post.title}」の情報を更新しました"
       redirect_to :posts
     else
