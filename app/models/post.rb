@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  scope :latest, -> { order(created_at: :desc) }
+  scope :old, -> { order(created_at: :asc) }
+  scope :most_favorited, -> { includes(:liked_users).sort_by { |x| x.liked_users.includes(:likes).size }.reverse }
   validates :title, {presence: true, length: {maximum: 30}}
   validates :content, {presence: true, length: {maximum: 500}}
   validates :address, presence: true
@@ -10,6 +13,7 @@ class Post < ApplicationRecord
   after_validation :geocode
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   def user
     return User.find_by(id: self.user_id)
@@ -21,7 +25,7 @@ class Post < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Post.where(['title LIKE(?) OR spot_name LIKE(?) OR address LIKE(?) OR user_name LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%"])
+      Post.where(['title LIKE(?) OR address LIKE(?) OR user_name LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
     else
       Post.all
     end
