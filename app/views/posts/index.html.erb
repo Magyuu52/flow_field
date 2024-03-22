@@ -17,7 +17,7 @@
       </div>
     </section>
     <h3>スポット件数: <%= @posts_count %>件</h3>
-    <%= link_to '新着順', posts_path(latest: "true") %>
+    <%= link_to '新着順', posts_path(latest: "true"), class:"#{ "selected-condition" if params[:latest] }" %>
     <%= link_to '古い順', posts_path(old: "true") %>
     <%= link_to 'いいね順', posts_path(most_favorited: "true") %>
     <div class="row">
