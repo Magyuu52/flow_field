@@ -713,6 +713,11 @@ h6 {
   font-weight: bold;
 }
 
+#spots .selected-condition{
+  pointer-events: none;
+  color: #000;
+}
+
 #spots .post-details-top {
   height: 50px;
   padding: 0 5px;
