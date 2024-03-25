@@ -908,6 +908,10 @@ h6 {
   #table .nav-tabs a {
     padding: 8px 60px;
   }
+
+  #table .condition-btn-area {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 767px) {
