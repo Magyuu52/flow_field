@@ -64,11 +64,11 @@
     </ul>
     <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
       <!-- Post List 1 -->
-      <%= render 'users/posts', user: @user, current_user: @current_user, user_posts_count: @user_posts_count %>
+        <%= render 'users/posts', user: @user, current_user: @current_user, user_posts_count: @user_posts_count %>
       <!-- End Post List 1 -->
 
       <!-- Post List 2 -->
-      <%= render 'users/liked_posts', user_liked_posts: @user_liked_posts, current_user: @current_user, user_liked_posts_count: @user_liked_posts_count %>
+        <%= render 'users/liked_posts', user_liked_posts: @user_liked_posts, current_user: @current_user, user_liked_posts_count: @user_liked_posts_count %>
       <!-- End Post List 2 -->
     </div>
   </div>
