@@ -958,7 +958,7 @@ h6 {
   display: inline-block;
 }
 
-#table .table-item .speaker {
+#table .table-item .image-wrapper {
   width: 60px;
   height: 60px;
   overflow: hidden;
@@ -975,7 +975,7 @@ h6 {
   margin: 0 10px 10px 0;
 }
 
-#table .table-item .speaker img {
+#table .table-item .image-wrapper img {
   height: 100%;
   transform: translateX(-50%);
   margin-left: 50%;
