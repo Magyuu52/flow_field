@@ -5,7 +5,7 @@
       <p>フォロー一覧</p>
     </div>
     <%= link_to "フォロワー一覧", user_followers_path(@current_user) %>
-    <%= link_to "フォロー一覧", user_followings_path(@current_user) %>
+    <%= link_to "フォロー一覧", user_followings_path(@current_user), class:"selected-condition" %>
     <%= render 'relationships/table', users: @users, current_user: @current_user %>
   <div>
 </section>
