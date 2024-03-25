@@ -866,9 +866,20 @@ h6 {
   padding: 60px 0 60px 0;
 }
 
+#table .condition-btn-area {
+  margin-left: 140px;
+  width: 220px;
+}
+
 #table .selected-condition{
   pointer-events: none;
   color: #000;
+}
+
+#table .separator {
+  width: 1.5px;
+  height: 18px;
+  background-color: #000;
 }
 
 #table .nav-tabs {

@@ -4,8 +4,11 @@
       <h2 class="mt-5">Followers List</h2>
       <p>フォロワー一覧</p>
     </div>
-    <%= link_to "フォロワー一覧", user_followers_path(@current_user), class:"selected-condition" %>
-    <%= link_to "フォロー一覧", user_followings_path(@current_user) %>
+    <div class="d-flex justify-content-between align-items-center condition-btn-area mb-4">
+      <%= link_to "フォロワー一覧", user_followers_path(@current_user), class:"selected-condition" %>
+      <span class="separator"></span>
+      <%= link_to "フォロー一覧", user_followings_path(@current_user) %>
+    </div>
     <%= render 'relationships/table', users: @users, current_user: @current_user %>
   <div>
 </section>
