@@ -1,0 +1,59 @@
+<h3>スポット件数: <%= posts_count %>件</h3>
+<div class="d-flex justify-content-between align-items-center condition-btn-area">
+  <%= link_to '新着順', posts_path(latest: "true"), class:"#{ "selected-condition" if params[:latest] }" %>
+  <span class="separator"></span>
+  <%= link_to '古い順', posts_path(old: "true"), class:"#{ "selected-condition" if params[:old] }" %>
+  <span class="separator"></span>
+  <%= link_to 'いいね順', posts_path(most_favorited: "true"), class:"#{ "selected-condition" if params[:most_favorited] }" %>
+</div>
+<div class="row">
+  <% posts.each do |post| %>
+    <div class="col-lg-4 col-md-6">
+      <div class="post-details-top d-flex justify-content-between align-items-center"> 
+        <div class="d-flex align-items-center">
+          <%= link_to user_path(post.user) do %>
+            <% if post.user.image.attached? %>
+              <%= image_tag(rails_blob_path(post.user.image),:size => "40x40",class:"rounded-circle") %>
+            <% else %>
+              <%= image_tag("default_user.png", :size => "40x40") %>
+            <% end %>
+          <% end %>
+          <div class="d-flex flex-column ms-2">
+            <%= link_to user_path(post.user) do %>
+              <p><%= post.user.name %></p>
+            <% end %>
+            <time><%= l post.created_at, format: :long %></time>
+          </div>
+        </div>
+        <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+          <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
+            <div class="align-items-center d-flex">
+              <span class="fa fa-thumbs-up fa-lg"></span>
+              <p class="ms-2 fs-4"><%= post.likes_count %></p>
+            </div>
+          <% end %>
+        <% else %>
+          <%= link_to post_likes_path(post.id), data: { "turbo-method": :post } do %>
+            <div class="align-items-center d-flex not-liked">
+              <span class="fa fa-thumbs-up fa-lg"></span>
+              <p class="ms-2 fs-4"><%= post.likes_count %></p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="spot aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+        <%= link_to post do %>
+          <% if post.spot_image.attached? %>
+            <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+          <% else %>
+            <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+          <% end %>
+          <div class="post-details-bottom">
+            <h3><%= post.title %></h3>
+            <p><%= post.address %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
