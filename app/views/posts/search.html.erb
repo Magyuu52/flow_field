@@ -1,4 +1,4 @@
-<section id="speakers">
+<section id="spots">
   <div class="container aos-init aos-animate" data-aos="fade-up">
     <div class="section-header">
       <h2 class="mt-5">Spot Index</h2>
@@ -16,27 +16,6 @@
         <% end %>
       </div>
     </section>
-    <h3>スポット件数: <%= @searched_posts_count %>件</h3>
-    <div class="row">
-      <% @searched_posts.each do |post| %>
-        <div class="col-lg-4 col-md-6">
-          <div class="speaker aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <%= link_to post do %>
-              <% if post.spot_image.attached? %>
-                <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
-              <% else %>
-                <%= image_tag("default_spot.jpg", class:"img-fluid") %>
-              <% end %>
-              <div class="details">
-                <h3><%= post.title %></h3>
-                <p><%= post.spot_name %></p>
-                <div class="social">
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
+    <%= render 'posts/posts_list', posts: @searched_posts, posts_count: @searched_posts_count, current_user: @current_user %>
   </div>
 </section>
