@@ -4,7 +4,7 @@
       <h2 class="mt-5">User List</h2>
       <p>ユーザー一覧</p>
     </div>
-    <%= render 'users/search_form' %>
-    <%= render 'users/table', users: @users, current_user: @current_user, users_count: @users_count %>
+    <%= render 'shared/users/search_form' %>
+    <%= render 'shared/users/table', users: @users, current_user: @current_user, users_count: @users_count %>
   <div>
 </section>
