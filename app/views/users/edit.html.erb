@@ -4,6 +4,7 @@
       <h2 class="mt-5">User Edit</h2>
       <p>ユーザー情報編集</p>
     </div>
+    <%= render "shared/error/message", obj: @current_user %>
     <div class="form form-content-area">
       <%= form_with model: @user do |f| %> 
         <div class="row">
