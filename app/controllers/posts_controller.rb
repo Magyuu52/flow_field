@@ -23,7 +23,7 @@ class PostsController < ApplicationController
       flash[:notice] = "新規投稿の作成に成功しました"
       redirect_to :posts
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -42,7 +42,7 @@ class PostsController < ApplicationController
       flash[:notice] = "「#{@post.title}」の情報を更新しました"
       redirect_to :posts
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
