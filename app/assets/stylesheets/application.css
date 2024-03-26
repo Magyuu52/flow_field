@@ -1575,3 +1575,7 @@ h6 {
 .not-liked {
   color: #112363;
 }
+
+.error-messages-area li {
+  color: #e0072f;
+}
