@@ -45,6 +45,7 @@
 
       <!-- Post List 2 -->
         <div role="tabpanel" class="col-lg-9 tab-pane fade" id="table-2">
+          <%= render 'shared/home/posts', posts: @most_favorited_posts, current_user: @current_user %>
         </div>
       <!-- End Post List 2 -->
     </div>
