@@ -4,6 +4,7 @@
       <h2 class="mt-5">新規スポット投稿</h2>
       <p>Create Spot</p>
     </div>
+    <%= render "shared/error/message", obj: @post %>
     <div class="form form-content-area">
       <%= form_with model: @post, url: posts_path do |f| %> 
         <div class="row">
