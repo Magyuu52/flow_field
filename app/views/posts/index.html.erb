@@ -4,7 +4,7 @@
       <h2 class="mt-5">Spot Index</h2>
       <p>投稿スポット一覧</p>
     </div>
-    <%= render 'users/search_form' %>
-    <%= render 'posts/posts_list', posts: @posts, posts_count: @posts_count, current_user: @current_user %>
+    <%= render 'shared/posts/search_form' %>
+    <%= render 'shared/posts/posts_list', posts: @posts, posts_count: @posts_count, current_user: @current_user %>
   </div>
 </section>
