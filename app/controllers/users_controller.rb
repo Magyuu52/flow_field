@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @users_count = @users.count
+    @users_count = @users.where.not(id: @current_user.id).count
   end
 
   def new
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   def search
     @searched_users = User.search(params[:keyword])
-    @searched_users_count = @searched_users.count
+    @searched_users_count = @searched_users.where.not(id: @current_user.id).count
   end
 
   def ensure_correct_user
