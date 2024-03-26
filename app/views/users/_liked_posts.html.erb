@@ -1,4 +1,4 @@
-<div role="tabpanel" class="col-lg-9  tab-pane fade" id="table-2">
+<div role="tabpanel" class="col-lg-9 tab-pane fade" id="table-2">
   <p>いいねした投稿数: <%= user_liked_posts_count %>件</p>
   <% user_liked_posts.each do |like| %>
     <% post = Post.find_by(id: like.post_id) %>
