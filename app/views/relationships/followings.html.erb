@@ -9,6 +9,6 @@
       <span class="separator"></span>
       <%= link_to "フォロー一覧", user_followings_path(@current_user), class:"selected-condition" %>
     </div>
-    <%= render 'relationships/table', users: @users, current_user: @current_user %>
+    <%= render 'shared/relationships/table', users: @users, current_user: @current_user %>
   <div>
 </section>
