@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザーの新規登録に成功しました"
       redirect_to ('/')
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       flash[:notice] = "アカウント情報を更新しました"
       redirect_to action: :show
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインに成功しました"
       redirect_to ('/')
     else
-      render :login_form
+      render :login_form, status: :unprocessable_entity
     end
   end
 
