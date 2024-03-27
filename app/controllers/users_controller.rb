@@ -54,6 +54,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ログインに成功しました"
       redirect_to ('/')
     else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
       render :login_form, status: :unprocessable_entity
     end
   end
