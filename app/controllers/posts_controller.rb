@@ -59,4 +59,7 @@ class PostsController < ApplicationController
     @searched_posts = Post.search(params[:keyword])
     @searched_posts_count = @searched_posts.count
   end
+
+  def ensure_correct_user
+  end
 end
