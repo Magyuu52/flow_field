@@ -4,7 +4,11 @@
       <h2 class="mt-5">login</h2>
       <p>ログイン</p>
     </div>
-    <%= render "shared/error/message", obj: @user %>
+    <% if @error_message %>
+      <div class="error-messages-area">
+        <%= @error_message %>
+      </div>
+    <% end %>
     <div class="form form-content-area">
       <%= form_with model: @user, url: login_path do |f| %> 
         <div class="form-group mt-3">
