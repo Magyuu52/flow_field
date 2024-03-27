@@ -42,7 +42,7 @@
             <% end %>
           <% end %>
         <% else %>
-          <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
+          <%= link_to post_likes_path(post.id), data: { "turbo-method": :post } do %>
             <div class="align-items-center d-flex not-liked">
               <span class="fa fa-thumbs-up fa-lg"></span>
               <p class="ms-2 fs-4"><%= post.likes_count %></p>
