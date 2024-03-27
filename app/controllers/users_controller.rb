@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @users_count = @users.where.not(id: @current_user.id).count
+    @users_count = @users.count
   end
 
   def new
