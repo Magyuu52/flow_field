@@ -61,5 +61,10 @@ class PostsController < ApplicationController
   end
 
   def ensure_correct_user
+    @post = Post.find(params[:id])
+    if @post.user_id != @current_user.id
+      flash[:alret] = "アクセス権限がありません"
+      redirect_to('/')
+    end
   end
 end
