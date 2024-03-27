@@ -6,7 +6,7 @@
 * License: https://bootstrapmade.com/license/
 */
 
-(function() {
+document.addEventListener('turbo:load', function() {
   "use strict";
 
   /**
