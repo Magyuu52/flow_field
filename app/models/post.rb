@@ -23,6 +23,9 @@ class Post < ApplicationRecord
     return Like.where(post_id: self.id).count
   end
 
+  def liked?(user)
+  end
+
   def self.search(search)
     if search != ""
       Post.where(['title LIKE(?) OR address LIKE(?) OR user_name LIKE(?)', "%#{search}%", "%#{search}%", "%#{search}%"])
