@@ -25,7 +25,7 @@
             <time><%= l post.created_at, format: :long %></time>
           </div>
         </div>
-        <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
+        <% if post.liked?(current_user) %>
           <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
             <div class="align-items-center d-flex">
               <span class="fa fa-thumbs-up fa-lg"></span>
