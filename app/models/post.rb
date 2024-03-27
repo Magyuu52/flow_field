@@ -24,6 +24,7 @@ class Post < ApplicationRecord
   end
 
   def liked?(user)
+    likes.exists?(user_id: user.id)
   end
 
   def self.search(search)
