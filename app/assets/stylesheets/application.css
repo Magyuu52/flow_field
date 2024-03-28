@@ -1596,3 +1596,7 @@ h6 {
 .guest-limit {
   pointer-events: none;
 }
+
+.guest-limit-message {
+  color: #e0072f;
+}
