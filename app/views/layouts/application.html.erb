@@ -38,7 +38,7 @@
                   <li><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
                   <li><%= link_to "ユーザー情報", user_path(@current_user) %></li>
                   <li><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li>
-                  <li><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
+                  <li><%= link_to "ログアウト", logout_path, data: { turbo_confirm: "ログアウトしますか？", turbo_method: :post } %></li>
                 </ul>
               </li>
               <li><%= link_to "アプリについて", about_path %></li>
@@ -91,7 +91,7 @@
                   <li><i class="bi bi-chevron-right"></i><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
                   <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー情報", user_path(@current_user) %></li>
                   <li><i class="bi bi-chevron-right"></i><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
+                  <li><i class="bi bi-chevron-right"></i><%= link_to "ログアウト", logout_path, data: { turbo_confirm: "ログアウトしますか？", turbo_method: :post } %></li>
                 </ul>
               </div>
               <div class="col-lg-4 footer-links">
