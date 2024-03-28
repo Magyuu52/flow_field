@@ -6,129 +6,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-visit-control" content="reload">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
   <body>
-    <header id="header" class="d-flex align-items-center header-scrolled">
-      <div class="container-fluid container-xxl d-flex align-items-center">
-        <div id="logo" class="me-auto">
-          <%= link_to '/' do %>
-            <h1>FLOW <span>FIELD</span></h1>
-          <% end %>
-        </div>
-        <% if @current_user %>
-          <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-              <li class="dropdown">
-                <a href="#">
-                  <% if @current_user.image.attached? %>
-                    <%= image_tag(rails_blob_path(@current_user.image), :size => "40x40", class:"rounded-circle me-2") %>
-                  <% else %>
-                    <%= image_tag("default_user.png", :size => "40x40", class:"rounded-circle me-2") %>
-                  <% end %>
-                  <%= @current_user.name %>
-                </a>
-                <ul>
-                  <li><%= link_to "フォロワー一覧", user_followers_path(@current_user) %></li>
-                  <li><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
-                  <li><%= link_to "ユーザー情報", user_path(@current_user) %></li>
-                  <li><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li>
-                  <li><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
-                </ul>
-              </li>
-              <li><%= link_to "アプリについて", about_path %></li>
-              <li><%= link_to "ユーザー", users_path %></li>
-              <li><%= link_to "スポット", posts_path(latest: "true") %></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav>
-          <%= link_to "新規スポット投稿", new_post_path, class:"buy-tickets scrollto" %>
-        <% else %>
-          <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-              <li><%= link_to "アプリについて", about_path %></li>
-              <li><%= link_to "新規登録", new_user_path %></li>
-              <li><%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post } %></li>
-              <li><%= link_to "ログイン", login_path %></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-          </nav>
-        <% end %>
-      </div>
-    </header>
-    <% if flash[:notice] %>
-      <div class="flash flash-notice">
-        <p><%= flash[:notice] %></p>
-      </div>
-    <% elsif flash[:alret] %>
-      <div class="flash flash-alert">
-        <p><%= flash[:alret] %></p>
-      </div>
-    <% end %>
+    <%= render 'layouts/header', current_user: @current_user %>
     <%= yield %>
-    <footer id="footer">
-      <div class="footer-top">
-        <div class="container">
-          <div class="row">
-            <% if @current_user %>
-              <div class="col-lg-4 footer-info">
-                <%= link_to '/' do %>
-                  <p>FLOW <span>FIELD</span></p>
-                <% end %>
-              <p>flow fieldはパルクールのスポットを検索・投稿するアプリケーションです。パルクールは主に「スポット」と呼ばれる周囲の環境を利用して練習を行います。どのような環境でも自由にできることを前提としているため、街中・公園・森・岩場など、いかなる環境もスポットになります。flow fieldでは、みんなの投稿から新たなスポットを見つけたり、スポットを投稿して共有することが可能となります。</p>
-              </div>
-              <div class="col-lg-4 footer-links">
-                <h4><%= @current_user.name %></h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "フォロワー一覧", user_followers_path(@current_user) %></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "フォロー一覧", user_followings_path(@current_user) %></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー情報", user_path(@current_user) %></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "プロフィール編集", edit_user_path(@current_user) %></li></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "ログアウト", logout_path, data: { turbo_method: :post } %></li>
-                </ul>
-              </div>
-              <div class="col-lg-4 footer-links">
-                <h4>メニュー</h4>
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "アプリについて", about_path %></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "ユーザー一覧", users_path %></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "スポット一覧", posts_path(latest: "true") %></li>
-                  <li><i class="bi bi-chevron-right"></i><%= link_to "新規スポット投稿", new_post_path%></li>
-                </ul>
-              </div>
-            </div>
-          <% else %>
-            <div class="col-lg-6 footer-info">
-              <%= link_to '/' do %>
-                <p>FLOW <span>FIELD</span></p>
-              <% end %>
-              <p>flow fieldはパルクールのスポットを検索・投稿するアプリケーションです。パルクールは主に「スポット」と呼ばれる周囲の環境を利用して練習を行います。どのような環境でも自由にできることを前提としているため、街中・公園・森・岩場など、いかなる環境もスポットになります。flow fieldでは、みんなの投稿から新たなスポットを見つけたり、スポットを投稿して共有することが可能となります。</p>
-            </div>
-            <div class="col-lg-6 footer-links">
-              <h4>メニュー</h4>
-              <ul>
-                <li><i class="bi bi-chevron-right"></i><%= link_to "アプリについて", about_path %></li>
-                <li><i class="bi bi-chevron-right"></i><%= link_to "新規登録", new_user_path %></li>
-                <li><i class="bi bi-chevron-right"></i><%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post } %></li>
-                <li><i class="bi bi-chevron-right"></i><%= link_to "ログイン", login_path %></li>
-              </ul>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <div class="container">
-        <div class="copyright">
-          © Copyright <strong>Flow Field</strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-    </footer>
+    <%= render 'layouts/footer', current_user: @current_user %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

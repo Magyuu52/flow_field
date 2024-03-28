@@ -4,7 +4,7 @@
   <span class="separator"></span>
   <%= link_to '古い順', posts_path(old: "true"), class:"#{ "selected-condition" if params[:old] }" %>
   <span class="separator"></span>
-  <%= link_to 'いいね順', posts_path(most_favorited: "true"), class:"#{ "selected-condition" if params[:most_favorited] }" %>
+  <%= link_to '人気順', posts_path(most_favorited: "true"), class:"#{ "selected-condition" if params[:most_favorited] }" %>
 </div>
 <div class="row">
   <% posts.each do |post| %>
@@ -25,12 +25,21 @@
             <time><%= l post.created_at, format: :long %></time>
           </div>
         </div>
-        <% if Like.find_by(user_id: current_user.id, post_id: post.id) %>
-          <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
-            <div class="align-items-center d-flex">
-              <span class="fa fa-thumbs-up fa-lg"></span>
-              <p class="ms-2 fs-4"><%= post.likes_count %></p>
-            </div>
+        <% if current_user %>
+          <% if post.liked?(current_user) %>
+            <%= link_to post_likes_path(post.id), data: { "turbo-method": :delete } do %>
+              <div class="align-items-center d-flex">
+                <span class="fa fa-thumbs-up fa-lg"></span>
+                <p class="ms-2 fs-4"><%= post.likes_count %></p>
+              </div>
+            <% end %>
+          <% else %>
+            <%= link_to post_likes_path(post.id), data: { "turbo-method": :post } do %>
+              <div class="align-items-center d-flex not-liked">
+                <span class="fa fa-thumbs-up fa-lg"></span>
+                <p class="ms-2 fs-4"><%= post.likes_count %></p>
+              </div>
+            <% end %>
           <% end %>
         <% else %>
           <%= link_to post_likes_path(post.id), data: { "turbo-method": :post } do %>

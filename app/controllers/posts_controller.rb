@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user, {except: [:index, :show]}
+  before_action :ensure_correct_user, {only: [:edit, :update, :destroy]}
+
   def index
     @posts = Post.latest
     if params[:old]
@@ -23,7 +26,7 @@ class PostsController < ApplicationController
       flash[:notice] = "新規投稿の作成に成功しました"
       redirect_to :posts
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -42,7 +45,7 @@ class PostsController < ApplicationController
       flash[:notice] = "「#{@post.title}」の情報を更新しました"
       redirect_to :posts
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
@@ -56,5 +59,13 @@ class PostsController < ApplicationController
   def search
     @searched_posts = Post.search(params[:keyword])
     @searched_posts_count = @searched_posts.count
+  end
+
+  def ensure_correct_user
+    @post = Post.find(params[:id])
+    if @post.user_id != @current_user.id
+      flash[:alret] = "アクセス権限がありません"
+      redirect_to('/')
+    end
   end
 end

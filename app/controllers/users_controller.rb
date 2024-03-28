@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @users_count = @users.where.not(id: @current_user.id).count
+    @users_count = @users.count
   end
 
   def new
@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザーの新規登録に成功しました"
       redirect_to ('/')
     else
-      render "new"
+      render "new", status: :unprocessable_entity
     end
   end
 
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
       flash[:notice] = "アカウント情報を更新しました"
       redirect_to action: :show
     else
-      render "edit"
+      render "edit", status: :unprocessable_entity
     end
   end
 
@@ -48,13 +48,14 @@ class UsersController < ApplicationController
   end
 
   def login
-    @user =User.find_by(email: params[:email],password: params[:password]) 
+    @user = User.find_by(email: params[:email], password: params[:password]) 
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインに成功しました"
       redirect_to ('/')
     else
-      render :login_form
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      render :login_form, status: :unprocessable_entity
     end
   end
 

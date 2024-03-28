@@ -1,0 +1,60 @@
+<header id="header" class="d-flex align-items-center header-scrolled">
+  <div class="container-fluid container-xxl d-flex align-items-center">
+    <div id="logo" class="me-auto">
+      <%= link_to '/' do %>
+        <h1>FLOW <span>FIELD</span></h1>
+      <% end %>
+    </div>
+    <% if current_user %>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li class="dropdown">
+            <a href="#">
+              <div class="d-flex align-items-center">
+                <% if current_user.image.attached? %>
+                  <%= image_tag(rails_blob_path(@current_user.image), :size => "40x40", class:"rounded-circle me-2") %>
+                <% else %>
+                  <%= image_tag("default_user.png", :size => "40x40", class:"rounded-circle me-2") %>
+                <% end %>
+                <%= current_user.name %>
+              </div>
+            </a>
+            <ul>
+              <li><%= link_to "フォロワー一覧", user_followers_path(current_user) %></li>
+              <li><%= link_to "フォロー一覧", user_followings_path(current_user) %></li>
+              <li><%= link_to "ユーザー情報", user_path(current_user) %></li>
+              <li><%= link_to "プロフィール編集", edit_user_path(current_user) %></li>
+              <li><%= link_to "ログアウト", logout_path, data: { turbo_confirm: "ログアウトしますか？", turbo_method: :post } %></li>
+            </ul>
+          </li>
+          <li><%= link_to "アプリについて", about_path %></li>
+          <li><%= link_to "ユーザー", users_path %></li>
+          <li><%= link_to "スポット", posts_path(latest: "true") %></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <%= link_to "新規スポット投稿", new_post_path, class:"buy-tickets scrollto" %>
+    <% else %>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><%= link_to "アプリについて", about_path %></li>
+          <li><%= link_to "ユーザー", users_path %></li>
+          <li><%= link_to "スポット", posts_path %></li>            
+          <li><%= link_to "新規登録", new_user_path %></li>
+          <li><%= link_to "ゲストログイン", guest_login_path, data: { turbo_method: :post } %></li>
+          <li><%= link_to "ログイン", login_path %></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    <% end %>
+  </div>
+</header>
+<% if flash[:notice] %>
+  <div class="flash flash-notice">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% elsif flash[:alret] %>
+  <div class="flash flash-alert">
+    <p><%= flash[:alret] %></p>
+  </div>
+<% end %>

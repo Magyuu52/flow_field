@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+  <div class="error-messages-area">
+    <h5 class="mb-2"><%= obj.errors.count %>件のエラーが確認されました</h5>
+    <ul>
+      <% obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
