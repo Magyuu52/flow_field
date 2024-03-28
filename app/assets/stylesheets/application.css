@@ -1052,6 +1052,18 @@ h6 {
   border: 2px solid #f82249;
 }
 
+#table .btn-3 {
+  margin: 0 auto;
+  border: none;
+  border-radius: 50px;
+  text-align: center;
+  font-weight: 600;
+  color: #fff;
+  padding: 10px 0px;
+  width: 50%;
+  background-color: #f82249;
+}
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
