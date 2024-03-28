@@ -48,6 +48,7 @@
         <div role="tabpanel" class="col-lg-9 tab-pane fade" id="table-2">
           <%= render 'shared/home/posts', posts: @most_favorited_posts, current_user: @current_user %>
         </div>
+        <%= link_to '人気投稿をもっと見る', posts_path(most_favorited: "true"), class:"btn-3 mt-5" %>
       <!-- End Post List 2 -->
     </div>
   </div>
