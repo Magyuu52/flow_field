@@ -1053,6 +1053,7 @@ h6 {
 }
 
 #table .btn-3 {
+  display: block;
   margin: 0 auto;
   border: none;
   border-radius: 50px;

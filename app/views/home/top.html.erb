@@ -40,15 +40,15 @@
       <!-- Post List 1 -->
         <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="table-1">
           <%= render 'shared/home/posts', posts: @latest_posts,current_user: @current_user %>
+          <%= link_to '新着投稿をもっと見る', posts_path(latest: "true"), class:"btn-3 mt-5" %>
         </div>
-        <%= link_to '新着投稿をもっと見る', posts_path(latest: "true"), class:"btn-3 mt-5" %>
       <!-- End Post List 1 -->
 
       <!-- Post List 2 -->
         <div role="tabpanel" class="col-lg-9 tab-pane fade" id="table-2">
           <%= render 'shared/home/posts', posts: @most_favorited_posts, current_user: @current_user %>
-        </div>
-        <%= link_to '人気投稿をもっと見る', posts_path(most_favorited: "true"), class:"btn-3 mt-5" %>
+          <%= link_to '人気投稿をもっと見る', posts_path(most_favorited: "true"), class:"btn-3 mt-5" %>
+        </div> 
       <!-- End Post List 2 -->
     </div>
   </div>
