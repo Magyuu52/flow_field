@@ -1592,3 +1592,7 @@ h6 {
 .error-messages-area {
   color: #e0072f;
 }
+
+.guest-limit {
+  pointer-events: none;
+}
