@@ -6,6 +6,9 @@
     </div>
     <%= render "shared/error/message", obj: @current_user %>
     <div class="form form-content-area">
+      <% if @current_user.id == Constants::GUEST_USER_ID %>
+        <p>※ゲストユーザーはご利用できません</p>
+      <% end %>
       <%= form_with model: @user do |f| %> 
         <div class="row">
           <div class="mb-2 d-flex align-items-center">
