@@ -41,6 +41,7 @@
         <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="table-1">
           <%= render 'shared/home/posts', posts: @latest_posts,current_user: @current_user %>
         </div>
+        <%= link_to '新着投稿をもっと見る', posts_path(latest: "true") %>
       <!-- End Post List 1 -->
 
       <!-- Post List 2 -->
