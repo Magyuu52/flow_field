@@ -75,7 +75,7 @@
 </section>
 <script>
   function initMap(){
-    let mapPosition = {lat: <%= @post.latitude || 0 %> , lng: <%= @post.longitude || 0 %> };
+    let mapPosition = {lat: <%= @post.latitude || 0 %>, lng: <%= @post.longitude || 0 %> };
     let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
       center: mapPosition
