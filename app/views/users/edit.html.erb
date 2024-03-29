@@ -4,43 +4,47 @@
       <h2 class="mt-5">User Edit</h2>
       <p>ユーザー情報編集</p>
     </div>
+    <%= render "shared/error/message", obj: @current_user %>
     <div class="form form-content-area">
+      <% if @current_user.id == Constants::GUEST_USER_ID %>
+        <p class="guest-limit-message">※ゲストユーザーはご利用できません</p>
+      <% end %>
       <%= form_with model: @user do |f| %> 
         <div class="row">
           <div class="mb-2 d-flex align-items-center">
-            <%= f.label :name ,"アイコン画像" ,class:"me-5" %>
+            <%= f.label :name, "アイコン画像", class:"me-5" %>
             <% if @current_user.image.attached? %>
               <%= image_tag(rails_blob_path(@current_user.image),:size => "70x70", class:"rounded-circle") %>
             <% else %>
               <%= image_tag("default_user.png", :size => "70x70") %>
             <% end %>
           </div>
-          <%= f.file_field :image, id:"item-image", class:"hidden mb-3" %>
+          <%= f.file_field :image, id:"item-image", class:"hidden mb-3 #{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }" %>
           <div class="form-group col-md-6">
-            <%= f.label :name ,"ユーザー名" ,class:"mb-3" %>
-            <%= f.text_field :name, class:"form-control", value:"#{@current_user.name}" %>
+            <%= f.label :name, "名前", class:"mb-3" %>
+            <%= f.text_field :name, class:"form-control #{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }", value:"#{@current_user.name}" %>
           </div>
           <div class="form-group col-md-6 mt-3 mt-md-0">
-            <%= f.label :email ,"メールアドレス" ,class:"mb-3" %>
-            <%= f.text_field :email, class:"form-control", value:"#{@current_user.email}" %>
+            <%= f.label :email, "メールアドレス", class:"mb-3" %>
+            <%= f.text_field :email, class:"form-control #{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }", value:"#{@current_user.email}" %>
           </div>
         </div>
         <div class="row">
           <div class="form-group col-md-6 mt-3">
-            <%= f.label :password ,"パスワード" ,class:"mb-3" %>
-            <%= f.password_field :password, class:"form-control", value:"#{@current_user.password}" %>
+            <%= f.label :password, "パスワード", class:"mb-3" %>
+            <%= f.password_field :password, class:"form-control #{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }", value:"#{@current_user.password}" %>
           </div>
           <div class="form-group col-md-6 mt-3">
             <%= f.label :experience, "経験年数", class:"mb-3" %>
-            <%= f.select :experience, ["設定しない", "〜3ヶ月", "3〜6ヶ月", "6〜9ヶ月", "9ヶ月〜1年", "1〜2年", "2〜3年", "3年以上"], {}, class:"form-control" %>
+            <%= f.select :experience, ["設定しない", "〜3ヶ月", "3〜6ヶ月", "6〜9ヶ月", "9ヶ月〜1年", "1〜2年", "2〜3年", "3年以上"], {}, class:"form-control #{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }" %>
           </div>
         </div>
         <div class="form-group mt-3">
-          <%= f.label :introduction ,"自己紹介" ,class:"mb-3" %>
-          <%= f.text_area :introduction, class:"form-control", rows:"4", value:"#{@current_user.introduction}" %>
+          <%= f.label :introduction, "自己紹介", class:"mb-3" %>
+          <%= f.text_area :introduction, class:"form-control #{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }", rows:"4", value:"#{@current_user.introduction}" %>
         </div>
         <div class="text-center mt-4">
-          <%= f.button :type => "submit" %>
+          <%= f.button :type => "submit", class:"#{ "guest-limit" if @current_user.id == Constants::GUEST_USER_ID }" %>
         </div>
       <% end %>
     </div>

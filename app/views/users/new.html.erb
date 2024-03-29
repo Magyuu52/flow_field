@@ -4,12 +4,13 @@
       <h2 class="mt-5">Create New User</h2>
       <p>ユーザー新規登録</p>
     </div>
+    <%= render "shared/error/message", obj: @user %>
     <div class="form form-content-area">
       <%= form_with model: @user, url: users_path do |f| %> 
         <div class="row">
           <div class="form-group col-md-6">
-            <%= f.label :name, "ユーザー名(20文字まで)", class:"mb-3" %>
-            <%= f.text_field :name, class:"form-control", placeholder:"ユーザー名を入力" %>
+            <%= f.label :name, "名前(20文字まで)", class:"mb-3" %>
+            <%= f.text_field :name, class:"form-control", placeholder:"名前を入力" %>
             <p class="mt-1 nessessory-column">※ 入力必須項目です</p>
           </div>
           <div class="form-group col-md-6 mt-3 mt-md-0">

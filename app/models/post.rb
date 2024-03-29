@@ -2,8 +2,8 @@ class Post < ApplicationRecord
   scope :latest, -> { order(created_at: :desc) }
   scope :old, -> { order(created_at: :asc) }
   scope :most_favorited, -> { includes(:liked_users).sort_by { |x| x.liked_users.includes(:likes).size }.reverse }
-  validates :title, {presence: true, length: {maximum: 30}}
-  validates :content, {presence: true, length: {maximum: 500}}
+  validates :title, { presence: true, length: { maximum: 30 } }
+  validates :content, length: { maximum: 500 }
   validates :address, presence: true
   has_one_attached :spot_image
   has_one_attached :flow_video
@@ -21,6 +21,10 @@ class Post < ApplicationRecord
 
   def likes_count
     return Like.where(post_id: self.id).count
+  end
+
+  def liked?(user)
+    likes.exists?(user_id: user.id)
   end
 
   def self.search(search)
