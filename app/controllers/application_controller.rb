@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def forbid_login_user
     if @current_user
       flash[:alret] = "すでにログイン済みです"
-      redirect_to('/')
+      redirect_to root_path
     end
   end
 end
