@@ -4,5 +4,16 @@
       <h2 class="mt-5">Reset Password</h2>
       <p>パスワード再設定</p>
     </div>
+    <div class="form form-content-area">
+      <%= form_with url: password_reset_path do |f| %> 
+        <div class="form-group mt-3 px-5">
+          <%= f.label :email, "メールアドレスを入力してください", class:"mb-3" %>
+          <%= f.text_field :email, class:"form-control", placeholder:"name@example.com" %>
+        </div>
+        <div class="text-center mt-4">
+          <%= f.button "パスワードの再設定を申請する", :type => "submit" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
