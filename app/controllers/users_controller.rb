@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザーの新規登録に成功しました"
-      redirect_to ('/')
+      redirect_to root_path
     else
       render "new", status: :unprocessable_entity
     end
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
     if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインに成功しました"
-      redirect_to ('/')
+      redirect_to root_path
     else
       @error_message = "メールアドレスまたはパスワードが間違っています"
       render :login_form, status: :unprocessable_entity
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice] = "ログアウトに成功しました"
-    redirect_to ('/')
+    redirect_to root_path
   end
 
   def search
@@ -73,7 +73,7 @@ class UsersController < ApplicationController
   def ensure_correct_user
     if @current_user.id != params[:id].to_i
       flash[:alret] = "アクセス権限がありません"
-      redirect_to('/')
+      redirect_to root_path
     end
   end
 end
