@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/' => 'home#top'
+  root to: 'home#top'
   get 'about' => 'home#about'
 
   resources :users, except: [:destroy] do
