@@ -53,4 +53,8 @@
     </div>
   </div>
 </section>
-<%= link_to "FLOW SPOTとは", about_path, class:"position-held-btn d-flex align-items-center justify-content-center active" %>
+<% if @current_user %>
+  <%= link_to "新規スポット投稿", new_post_path, class:"position-held-btn d-flex align-items-center justify-content-center active" %>
+<% else %>
+  <%= link_to "FLOW SPOTとは", about_path, class:"position-held-btn d-flex align-items-center justify-content-center active" %>
+<% end %>
