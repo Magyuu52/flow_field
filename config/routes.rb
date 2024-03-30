@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   post 'logout' => 'users#logout'
 
   post 'guest_login' => 'guest_sessions#create'
+  get 'password/reset' => 'password_resets#new'
+  post 'password/reset' => 'password_resets#create'
 
   resources :posts do
     resource :likes, only: [:create, :destroy]
