@@ -1,7 +1,7 @@
 <section id="top">
   <div class="top-container aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-    <h1 class="mb-4 pb-0">FLOW<span> FIELD</span></h1>
-    <p class="mb-5 pb-0">FLOW FIELDでお気に入りのパルクールスポットを発見・投稿しよう！</p>
+    <h1 class="mb-4 pb-0">FLOW<span> SPOT</span></h1>
+    <p class="mb-5 pb-0">FLOW SPOTでお気に入りのパルクールスポットを発見・投稿しよう！</p>
     <% if @current_user %>
       <%= link_to "スポットを投稿する", new_post_path, class:"top-btn-new" %>
     <% else %>
@@ -53,4 +53,4 @@
     </div>
   </div>
 </section>
-<%= link_to "flow_fieldとは", about_path, class:"position-held-btn d-flex align-items-center justify-content-center active" %>
+<%= link_to "FLOW SPOTとは", about_path, class:"position-held-btn d-flex align-items-center justify-content-center active" %>
