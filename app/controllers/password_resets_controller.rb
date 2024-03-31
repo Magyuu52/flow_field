@@ -15,6 +15,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
+    @user = User.find_signed!(params[:token], purpose: "password_reset")
   end
 
   def update
