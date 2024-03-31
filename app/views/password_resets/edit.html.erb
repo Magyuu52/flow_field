@@ -4,5 +4,21 @@
       <h2 class="mt-5">Reset Password</h2>
       <p>パスワード再設定</p>
     </div>
+    <div class="form form-content-area">
+      <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <%= f.label :password, "パスワード", class:"mb-3" %>
+            <%= f.password_field :password, class:"form-control", placeholder:"パスワードを入力" %>
+          </div>
+          <div class="form-group col-md-6 mt-3 mt-md-0">
+            <%= f.label :password_confirm, "確認用パスワード", class:"mb-3" %>
+            <%= f.password_field :password_confirm, class:"form-control", placeholder:"確認用パスワードを入力" %>
+          <div class="text-center mt-4">
+            <%= f.button "パスワードを再設定する", :type => "submit" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </section>
