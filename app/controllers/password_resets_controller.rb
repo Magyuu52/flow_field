@@ -19,5 +19,11 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
+    if @user.update(params.require(:user).permit(:password, :password_confirmation))
+      flash[:notice] = "パスワードがリセットされました"
+    else
+      flash[:alret] = "パスワードの再設定に失敗しました"
+      render :edit
+    end
   end
 end
