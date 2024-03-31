@@ -17,7 +17,7 @@ class PasswordResetsController < ApplicationController
   def edit
     @user = User.find_signed!(params[:token], purpose: "password_reset")
     rescue ActiveSupport::MessageVerifier::InvalidSignature
-      flash[:danger] = "URLの有効期限が切れています。もう一度申請をお願いします"
+      flash[:alret] = "URLの有効期限が切れています。もう一度申請をお願いします"
       redirect_to password_reset_path
   end
 
