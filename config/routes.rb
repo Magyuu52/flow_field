@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post 'password/reset' => 'password_resets#create'
   get 'password/reset/edit' => "password_resets#edit"
   patch 'password/reset/edit' => "password_resets#update"
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   resources :posts do
     resource :likes, only: [:create, :destroy]
