@@ -5,7 +5,7 @@
       <p>パスワード再設定</p>
     </div>
     <div class="form form-content-area">
-      <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+      <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |f| %>
         <div class="row">
           <div class="form-group col-md-6">
             <%= f.label :password, "パスワード", class:"mb-3" %>
