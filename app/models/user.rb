@@ -39,5 +39,8 @@ class User < ApplicationRecord
   end
 
   def check_password
+    if password_confirm != password
+      errors.add(:password_confirm, "が一致しません。正しく入力してください")
+    end
   end
 end
