@@ -37,4 +37,7 @@ class User < ApplicationRecord
       User.all
     end
   end
+
+  def check_password
+  end
 end
