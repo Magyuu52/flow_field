@@ -6,7 +6,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user.present?
       PasswordResetMailer.with(user: @user).reset.deliver_later
-      flash[:notice] = "パスワードリセットメールを送りました"
+      flash[:notice] = "パスワード再設定申請メールを送りました"
       redirect_to root_path
     else
       flash[:alret] = "メールアドレスが見つかりませんでした"
