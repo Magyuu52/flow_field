@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX, message: "は半角6~12文字英大文字・小文字・数字それぞれ1文字以上含む必要があります" }
+  validate :check_password
   has_one_attached :image
   has_many :posts, dependent: :destroy
   has_many :favorites, dependent: :destroy
@@ -35,6 +36,12 @@ class User < ApplicationRecord
       User.where('name LIKE(?)', "%#{search}%")
     else
       User.all
+    end
+  end
+
+  def check_password
+    if password_confirm != password
+      errors.add(:password_confirm, "が一致しません。正しく入力してください")
     end
   end
 end
