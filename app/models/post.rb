@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   scope :latest, -> { includes([spot_image_attachment: :blob]).order(created_at: :desc) }
-  scope :old, -> { order(created_at: :asc) }
+  scope :old, -> { includes([spot_image_attachment: blob]).order(created_at: :asc) }
   scope :most_favorited, -> { includes([:spot_image_attachment]).sort_by { |x| x.liked_users.includes(:likes).size }.reverse }
   validates :title, { presence: true, length: { maximum: 30 } }
   validates :content, length: { maximum: 500 }
