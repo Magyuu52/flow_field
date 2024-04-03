@@ -9,7 +9,7 @@ class PasswordResetsController < ApplicationController
       flash[:notice] = "パスワード再設定申請メールを送りました"
       redirect_to root_path
     else
-      flash[:alret] = "メールアドレスが見つかりませんでした"
+      flash.now[:alret] = "メールアドレスが見つかりませんでした"
       render :new, status: :unprocessable_entity
     end
   end
@@ -27,7 +27,7 @@ class PasswordResetsController < ApplicationController
       flash[:notice] = "パスワードが再設定されました"
       redirect_to login_path
     else
-      flash[:alret] = "パスワードの再設定に失敗しました"
+      flash.now[:alret] = "パスワードの再設定に失敗しました"
       render :edit, status: :unprocessable_entity
     end
   end
