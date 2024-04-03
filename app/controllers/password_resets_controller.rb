@@ -22,6 +22,7 @@ class PasswordResetsController < ApplicationController
   end
 
   def update
+    @user = User.find_signed!(params[:token], purpose: "password_reset")
     if @user.update(params.require(:user).permit(:password, :password_confirm))
       flash[:notice] = "パスワードが再設定されました"
     else
