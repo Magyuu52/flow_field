@@ -6,9 +6,9 @@
       <p>フォロワー一覧</p>
     </div>
     <div class="d-flex justify-content-between align-items-center condition-btn-area mb-4">
-      <%= link_to "フォロワー一覧", user_followers_path(@current_user), class:"selected-condition" %>
+      <%= link_to "フォロワー一覧", user_followers_path, class:"selected-condition" %>
       <span class="separator"></span>
-      <%= link_to "フォロー一覧", user_followings_path(@current_user) %>
+      <%= link_to "フォロー一覧", user_followings_path %>
     </div>
     <%= render 'shared/relationships/table', users: @users, current_user: @current_user %>
   <div>
