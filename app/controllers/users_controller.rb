@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
   def index
-    @users = User.includes([:image_attachment])
+    @users = User.all
     @users_count = @users.count
   end
 
