@@ -13,11 +13,11 @@ class RelationshipsController < ApplicationController
 
   def followings
     user = User.find(params[:user_id])
-    @users = user.followings
+    @users = user.followings.includes([image_attachment: :blob])
   end
 
   def followers
     user = User.find(params[:user_id])
-    @users = user.followers
+    @users = user.followers.includes([image_attachment: :blob])
   end
 end
