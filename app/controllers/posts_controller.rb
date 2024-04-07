@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video))
+    @post = Post.new(image_resize(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video)))
     @post.user_id = @current_user.id
     @post.user_name = @current_user.name
     if @post.save
@@ -67,5 +67,10 @@ class PostsController < ApplicationController
       flash[:alret] = "アクセス権限がありません"
       redirect_to root_path
     end
+  end
+
+  private
+
+  def image_resize(params)
   end
 end
