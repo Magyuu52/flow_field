@@ -76,7 +76,7 @@ class PostsController < ApplicationController
   end
 
   def image_resize(params)
-    params[:spot_image].tempfile = ImageProcessing::MiniMagick.source(params[:spot_image].tempfile).resize_to_fill(4000, 2700).call
+    params[:spot_image].tempfile = ImageProcessing::MiniMagick.source(params[:spot_image].tempfile).resize_to_fill(3254, 2169).call
     params
   end
 end
