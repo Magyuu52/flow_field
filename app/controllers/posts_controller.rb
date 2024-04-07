@@ -71,6 +71,10 @@ class PostsController < ApplicationController
 
   private
 
+  def post_params
+    params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video)
+  end
+
   def image_resize(params)
     params[:spot_image].tempfile = ImageProcessing::MiniMagick.source(params[:spot_image].tempfile).resize_to_fill(4000, 2700).call
     params
