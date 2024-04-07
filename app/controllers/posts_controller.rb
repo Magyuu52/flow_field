@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(image_resize(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video)))
+    @post = Post.new(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video))
     @post.user_id = @current_user.id
     @post.user_name = @current_user.name
     if @post.save
@@ -72,5 +72,7 @@ class PostsController < ApplicationController
   private
 
   def image_resize(params)
+    params[:spot_image].tempfile = ImageProcessing::MiniMagick.source(params[:spot_image].tempfile).resize_to_fill(4000, 2700).call
+    params
   end
 end
