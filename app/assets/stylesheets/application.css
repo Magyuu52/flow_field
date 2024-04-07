@@ -91,7 +91,7 @@ h6 {
   bottom: 35px;
   z-index: 996;
   background: #f82249;
-  width: 140px;
+  padding: 0 20px;
   height: 40px;
   border-radius: 50px;
   transition: all 0.4s;
