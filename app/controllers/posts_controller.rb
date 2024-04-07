@@ -19,7 +19,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit(:title, :address, :content, :spot_image, :flow_video))
+    @post = Post.new(image_resize(post_params))
     @post.user_id = @current_user.id
     @post.user_name = @current_user.name
     if @post.save
