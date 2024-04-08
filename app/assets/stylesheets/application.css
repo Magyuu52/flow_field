@@ -91,7 +91,7 @@ h6 {
   bottom: 35px;
   z-index: 996;
   background: #f82249;
-  width: 140px;
+  padding: 0 20px;
   height: 40px;
   border-radius: 50px;
   transition: all 0.4s;
@@ -488,7 +488,7 @@ h6 {
 --------------------------------------------------------------*/
 #top {
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   background: url('top_bg.png') top center;
   background-size: cover;
   overflow: hidden;
@@ -1560,9 +1560,14 @@ h6 {
   margin: 0;
 }
 
+.header-cover {
+  height: 70px;
+  background-color: rgba(6, 12, 34, 0.98);
+}
+
 .flash {
   width: 100%;
-  height: 110px;
+  height: 40px;
   display: flex;
   justify-content: center;
   position: relative;
