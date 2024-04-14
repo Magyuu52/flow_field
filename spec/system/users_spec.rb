@@ -16,6 +16,17 @@ RSpec.describe "Users", type: :system do
     end
 
     context '入力情報に誤りがある場合' do
+      it 'ユーザーの新規登録に失敗すること' do
+        visit new_user_path
+        fill_in '名前', with: ''
+        fill_in 'メールアドレス', with: ''
+        fill_in 'パスワード', with: ''
+        fill_in '確認用パスワード', with: ''
+        click_on '新規登録をする'
+        expect(page).to have_content('名前を入力してください')
+        expect(page).to have_content('メールアドレスを入力してください')
+        expect(page).to have_content('パスワードを入力してください')
+      end
     end
   end
 end
