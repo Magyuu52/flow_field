@@ -40,6 +40,12 @@ RSpec.describe "Sessions", type: :system do
 
   describe 'ゲストログイン' do
     it 'ゲストログインできること' do
+      visit root_path
+      within '.navbar' do
+        click_on 'ゲストログイン'
+      end
+      expect(current_path).to eq root_path
+      expect(page).to have_content 'ゲストユーザーとしてログインしました'
     end
   end
 end
