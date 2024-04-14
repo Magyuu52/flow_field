@@ -37,4 +37,7 @@ RSpec.describe "Sessions", type: :system do
       expect(page).to have_content 'ログアウトに成功しました'
     end
   end
+
+  describe 'ゲストログイン' do
+  end
 end
