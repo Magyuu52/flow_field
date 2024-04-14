@@ -16,6 +16,8 @@ RSpec.describe "Sessions", type: :system do
     end
 
     context 'ユーザーの入力情報に誤りがある場合' do
+      it 'ログインできないこと' do
+      end
     end
   end
 end
