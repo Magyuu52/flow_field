@@ -28,5 +28,7 @@ RSpec.describe "Sessions", type: :system do
   end
 
   describe 'ログアウト' do
+    it 'ユーザーがログアウトすると、トップページへリダイレクトすること' do
+    end
   end
 end
