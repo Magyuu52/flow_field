@@ -17,6 +17,12 @@ RSpec.describe "Sessions", type: :system do
 
     context 'ユーザーの入力情報に誤りがある場合' do
       it 'ログインできないこと' do
+        visit login_path
+        fill_in 'メールアドレス', with: user.email
+        fill_in 'パスワード', with: 'Test122'
+        click_on 'ログインする'
+        expect(current_path).to eq login_path
+        expect(page).to have_content 'メールアドレスまたはパスワードが間違っています'
       end
     end
   end
