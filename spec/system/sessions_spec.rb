@@ -26,4 +26,7 @@ RSpec.describe "Sessions", type: :system do
       end
     end
   end
+
+  describe 'ログアウト' do
+  end
 end
