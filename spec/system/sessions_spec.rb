@@ -29,6 +29,12 @@ RSpec.describe "Sessions", type: :system do
 
   describe 'ログアウト' do
     it 'ユーザーがログアウトすると、トップページへリダイレクトすること' do
+      login(user)
+      within '.navbar' do
+        click_on 'ログアウト'
+      end
+      expect(current_path).to eq root_path
+      expect(page).to have_content 'ログアウトに成功しました'
     end
   end
 end
