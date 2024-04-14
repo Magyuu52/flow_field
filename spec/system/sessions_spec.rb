@@ -39,5 +39,7 @@ RSpec.describe "Sessions", type: :system do
   end
 
   describe 'ゲストログイン' do
+    it 'ゲストログインできること' do
+    end
   end
 end
