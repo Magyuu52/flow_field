@@ -37,5 +37,8 @@ RSpec.describe "Users", type: :system do
     before do
       login(user)
     end
+    
+    it '自分のプロフィール画面に編集ボタンが表示されること' do
+    end
   end
 end
