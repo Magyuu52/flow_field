@@ -53,6 +53,16 @@ RSpec.describe "Users", type: :system do
     end
 
     it 'プロフィールを更新できること' do
+      visit edit_user_path(user.id)
+      fill_in '名前', with: 'new-testuser'
+      fill_in 'メールアドレス', with: 'newemail@example.com'
+      fill_in 'パスワード', with: 'Newpassword1'
+      fill_in '確認用パスワード', with: 'Newpassword1'
+      select '3年以上', from: '経験年数'
+      fill_in '自己紹介', with: 'プロフィール更新のテストです'
+      click_on '更新する'
+      expect(current_path).to eq user_path(user.id)
+      expect(page).to have_content 'アカウント情報を更新しました'
     end
   end
 end
