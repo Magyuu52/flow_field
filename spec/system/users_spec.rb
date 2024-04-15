@@ -29,4 +29,7 @@ RSpec.describe "Users", type: :system do
       end
     end
   end
+
+  describe 'プロフィール更新' do
+  end
 end
