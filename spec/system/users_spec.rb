@@ -44,5 +44,8 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content 'プロフィール編集'
       end
     end
+
+    it '他のユーザープロフィール画面に編集ボタンが表示されないこと' do
+    end
   end
 end
