@@ -51,5 +51,8 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_no_content 'プロフィール編集'
       end
     end
+
+    it 'プロフィールを更新できること' do
+    end
   end
 end
