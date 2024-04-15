@@ -31,5 +31,7 @@ RSpec.describe "Users", type: :system do
   end
 
   describe 'プロフィール更新' do
+    let(:user) { create(:user) }
+    let(:other_user) { create(:user) }
   end
 end
