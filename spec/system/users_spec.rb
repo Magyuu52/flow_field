@@ -39,6 +39,10 @@ RSpec.describe "Users", type: :system do
     end
     
     it '自分のプロフィール画面に編集ボタンが表示されること' do
+      visit user_path(user.id)
+      within '.user-plofile' do
+        expect(page).to have_content 'プロフィール編集'
+      end
     end
   end
 end
