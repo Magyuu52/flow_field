@@ -46,6 +46,10 @@ RSpec.describe "Users", type: :system do
     end
 
     it '他のユーザープロフィール画面に編集ボタンが表示されないこと' do
+      visit user_path(other_user.id)
+      within '.user-plofile' do
+        expect(page).to have_no_content 'プロフィール編集'
+      end
     end
   end
 end
