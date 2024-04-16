@@ -73,5 +73,8 @@ RSpec.describe "Users", type: :system do
     before do
       login(user)
     end
+
+    it 'ユーザーをフォローできること' do
+    end
   end
 end
