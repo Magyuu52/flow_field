@@ -66,7 +66,7 @@ RSpec.describe "Users", type: :system do
     end
   end
 
-  describe 'フォロー' do
+  describe 'フォロー機能' do
     let(:user) { create(:user) }
     let(:other_user) { create(:user) }
 
