@@ -81,5 +81,8 @@ RSpec.describe "Users", type: :system do
       expect(user.followings.count).to eq(1)
       expect(other_user.followers.count).to eq(1)
     end
+
+    it 'ユーザーのフォローを解除できること' do
+    end
   end
 end
