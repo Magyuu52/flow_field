@@ -83,6 +83,12 @@ RSpec.describe "Users", type: :system do
     end
 
     it 'ユーザーのフォローを解除できること' do
+      user.follow(other_user.id)
+      visit user_path(other_user.id)
+      click_on 'フォロー済み'
+      expect(page).to have_content 'フォローする'
+      expect(user.followings.count).to eq(0)
+      expect(other_user.followers.count).to eq(0)
     end
   end
 end
