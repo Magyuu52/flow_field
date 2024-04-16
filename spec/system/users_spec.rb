@@ -65,4 +65,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content 'アカウント情報を更新しました'
     end
   end
+
+  describe 'フォロー' do
+  end
 end
