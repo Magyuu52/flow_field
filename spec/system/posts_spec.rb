@@ -25,4 +25,7 @@ RSpec.describe "Posts", type: :system do
       expect(page).to have_content other_post.user.name
     end
   end
+  
+  describe '新規投稿作成機能' do
+  end
 end
