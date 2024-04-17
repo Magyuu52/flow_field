@@ -10,5 +10,8 @@ RSpec.describe "Posts", type: :system do
     before do
       login(user)
     end
+
+    it '自分が作成した投稿が閲覧できること' do
+    end
   end
 end
