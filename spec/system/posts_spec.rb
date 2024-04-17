@@ -17,5 +17,8 @@ RSpec.describe "Posts", type: :system do
       expect(page).to have_content post.address
       expect(page).to have_content post.user.name
     end
+
+    it '他のユーザーが作成した投稿が閲覧できること' do
+    end
   end
 end
