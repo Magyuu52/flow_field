@@ -27,5 +27,7 @@ RSpec.describe "Posts", type: :system do
   end
   
   describe '新規投稿作成機能' do
+    it '新規投稿の作成ができること' do
+    end
   end
 end
