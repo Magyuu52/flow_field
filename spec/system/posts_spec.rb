@@ -6,7 +6,7 @@ RSpec.describe "Posts", type: :system do
   let!(:post) { create(:post, user: user) }
   let!(:other_post) { create(:post, user: other_user) }
 
-  describe 'ポスト一覧' do
+  describe '投稿一覧' do
     before do
       login(user)
     end
