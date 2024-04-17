@@ -33,7 +33,7 @@ RSpec.describe "Posts", type: :system do
       fill_in '投稿タイトル', with: "test-post"
       fill_in '住所', with: "大阪府大阪市港区海岸通１丁目１"
       attach_file 'post[spot_image]', "spec/fixtures/image/test_post.jpg"
-      click_on '登録する'
+      click_on '投稿する'
       expect(current_path).to eq posts_path
       expect(page).to have_content '新規投稿の作成に成功しました'
       expect(page).to have_content other_post.user.name
