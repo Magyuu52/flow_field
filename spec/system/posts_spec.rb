@@ -47,6 +47,10 @@ RSpec.describe "Posts", type: :system do
     end
 
     it '自分の投稿に編集ボタンが表示されること' do
+      visit post_path(post.id)
+      within ".post-details-top" do
+        expect(page).to have_content '編集'
+      end
     end
   end
 end
