@@ -61,6 +61,13 @@ RSpec.describe "Posts", type: :system do
     end
 
     it '投稿を更新できること' do
+      visit edit_post_path(post.id)
+      fill_in '投稿タイトル', with: "test-post-updated"
+      fill_in '住所', with: "東京都千代田区神田和泉町１−３００"
+      attach_file 'post[spot_image]', "spec/fixtures/image/test_post_update.jpg"
+      click_on '更新する'
+      expect(current_path).to eq posts_path
+      expect(page).to have_content '「test-post-updated」の情報を更新しました'
     end
   end
 end
