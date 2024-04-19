@@ -43,6 +43,11 @@ RSpec.describe "Posts", type: :system do
 
   describe '投稿詳細ページ' do
     it '投稿の詳細画面が閲覧でき、投稿の情報が正しく表示されていること' do
+      visit post_path(post.id)
+      expect(current_path).to eq "/posts/#{post.id}"
+      expect(page).to have_content post.title
+      expect(page).to have_content post.address
+      expect(page).to have_content post.user.name
     end
   end
 
