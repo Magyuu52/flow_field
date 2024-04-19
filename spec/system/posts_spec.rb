@@ -41,6 +41,9 @@ RSpec.describe "Posts", type: :system do
     end
   end
 
+  describe '投稿詳細ページ' do
+  end
+
   describe '投稿編集・更新機能' do
     before do
       login(user)
