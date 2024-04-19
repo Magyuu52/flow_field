@@ -42,6 +42,8 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe '投稿詳細ページ' do
+    it '投稿の詳細画面が閲覧でき、投稿の情報が正しく表示されていること' do
+    end
   end
 
   describe '投稿編集・更新機能' do
