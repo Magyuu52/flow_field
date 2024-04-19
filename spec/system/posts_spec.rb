@@ -54,6 +54,10 @@ RSpec.describe "Posts", type: :system do
     end
 
     it '他のユーザーの投稿には編集ボタンが表示されないこと' do
+      visit post_path(other_post.id)
+      within ".post-details-top" do
+        expect(page).to_not have_content '編集'
+      end
     end
   end
 end
