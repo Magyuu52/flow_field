@@ -59,5 +59,8 @@ RSpec.describe "Posts", type: :system do
         expect(page).to_not have_content '編集'
       end
     end
+
+    it '投稿を更新できること' do
+    end
   end
 end
