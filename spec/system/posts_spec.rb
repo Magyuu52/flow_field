@@ -40,4 +40,7 @@ RSpec.describe "Posts", type: :system do
       expect(page).to have_content post.title
     end
   end
+
+  describe '投稿編集・更新機能' do
+  end
 end
