@@ -109,4 +109,7 @@ RSpec.describe "Posts", type: :system do
       expect(page).to have_content "「#{post.title}」を削除しました"
     end
   end
+
+  describe 'いいね機能' do
+  end
 end
