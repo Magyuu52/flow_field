@@ -94,6 +94,10 @@ RSpec.describe "Posts", type: :system do
     end
 
     it '他のユーザーの投稿には削除ボタンが表示されないこと' do
+      visit post_path(other_post.id)
+      within ".post-details-top" do
+        expect(page).to_not have_link '削除'
+      end
     end
   end
 end
