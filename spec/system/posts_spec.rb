@@ -82,5 +82,8 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe '投稿削除機能' do
+    before do
+      login(user)
+    end
   end
 end
