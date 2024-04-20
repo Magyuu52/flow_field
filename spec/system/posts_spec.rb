@@ -85,5 +85,8 @@ RSpec.describe "Posts", type: :system do
     before do
       login(user)
     end
+
+    it '自分の投稿に削除ボタンが表示されること' do
+    end
   end
 end
