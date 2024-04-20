@@ -114,5 +114,10 @@ RSpec.describe "Posts", type: :system do
     before do
       login(user)
     end
+
+    context 'いいねをしていない投稿の場合' do
+    end
+
+    context 'いいねをしている投稿の場合' do
   end
 end
