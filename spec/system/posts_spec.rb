@@ -134,5 +134,9 @@ RSpec.describe "Posts", type: :system do
         visit post_path(liked_post.id)
         expect(page).to have_link 'いいね済み'
       end
+    
+      it 'いいねを解除できること' do
+      end
+    end
   end
 end
