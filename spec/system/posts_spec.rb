@@ -99,5 +99,8 @@ RSpec.describe "Posts", type: :system do
         expect(page).to_not have_link '削除'
       end
     end
+
+    it '投稿を削除できること' do
+    end
   end
 end
