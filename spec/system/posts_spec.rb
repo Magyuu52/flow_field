@@ -117,6 +117,8 @@ RSpec.describe "Posts", type: :system do
 
     context 'いいねをしていない投稿の場合' do
       it 'いいねボタンが表示されていること' do
+        visit post_path(other_post.id)
+        expect(page).to have_link 'いいねする'
       end
     end
 
