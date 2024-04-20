@@ -122,6 +122,10 @@ RSpec.describe "Posts", type: :system do
       end
 
       it 'いいねができること' do
+        visit post_path(other_post.id)
+        click_on 'いいねする'
+        expect(page).to have_link 'いいね済み'
+        expect(other_post.likes.count).to eq(1)
       end
     end
 
