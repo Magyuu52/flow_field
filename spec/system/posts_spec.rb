@@ -80,4 +80,7 @@ RSpec.describe "Posts", type: :system do
       expect(page).to have_content '「test-post-updated」の情報を更新しました'
     end
   end
+
+  describe '投稿削除機能' do
+  end
 end
