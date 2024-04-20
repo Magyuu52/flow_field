@@ -130,5 +130,7 @@ RSpec.describe "Posts", type: :system do
     end
 
     context 'いいねをしている投稿の場合' do
+      it 'いいねを解除するボタンが表示されていること' do
+      end
   end
 end
