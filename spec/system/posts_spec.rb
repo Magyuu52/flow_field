@@ -111,5 +111,8 @@ RSpec.describe "Posts", type: :system do
   end
 
   describe 'いいね機能' do
+    before do
+      login(user)
+    end
   end
 end
