@@ -116,6 +116,8 @@ RSpec.describe "Posts", type: :system do
     end
 
     context 'いいねをしていない投稿の場合' do
+      it 'いいねボタンが表示されていること' do
+      end
     end
 
     context 'いいねをしている投稿の場合' do
