@@ -120,6 +120,9 @@ RSpec.describe "Posts", type: :system do
         visit post_path(other_post.id)
         expect(page).to have_link 'いいねする'
       end
+
+      it 'いいねができること' do
+      end
     end
 
     context 'いいねをしている投稿の場合' do
