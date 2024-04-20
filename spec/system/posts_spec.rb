@@ -101,6 +101,10 @@ RSpec.describe "Posts", type: :system do
     end
 
     it '投稿を削除できること' do
+      visit post_path(post.id)
+      click_on '削除'
+      expect(current_path).to eq posts_path
+      expect(page).to have_content "「#{post.title}」を削除しました"
     end
   end
 end
