@@ -5,6 +5,8 @@ RSpec.describe "Posts", type: :system do
   let(:other_user) { create(:user) }
   let!(:post) { create(:post, user: user) }
   let!(:other_post) { create(:post, user: other_user) }
+  let!(:liked_post) { create(:post, user: other_user) }
+  let!(:like) { create(:like, post: liked_post, user: user) }
 
   describe '投稿一覧' do
     before do
