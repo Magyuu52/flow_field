@@ -131,6 +131,8 @@ RSpec.describe "Posts", type: :system do
 
     context 'いいねをしている投稿の場合' do
       it 'いいねを解除するボタンが表示されていること' do
+        visit post_path(liked_post.id)
+        expect(page).to have_link 'いいね済み'
       end
   end
 end
