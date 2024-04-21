@@ -13,6 +13,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーの名前が20文字を超える場合は無効であること' do
+      user_over_name = FactoryBot.build(:user, name: 'a' * 21)
+      expect(user_over_name).to be_invalid
     end
   end
 end
