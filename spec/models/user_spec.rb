@@ -54,6 +54,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーのパスワードが12文字を超える場合は無効であること' do
+      user_without_password = FactoryBot.build(:user, password: 'Aa11111111111')
+      expect(user_without_password).to be_invalid
     end
   end
 end
