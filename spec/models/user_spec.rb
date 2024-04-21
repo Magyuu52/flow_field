@@ -89,6 +89,7 @@ RSpec.describe "User", type: :model do
     let(:post) { create(:post, user: user) }
 
     it 'postモデルとの関連付け正しく設定されていること' do
+      expect(user.posts).to include post
     end
   end
 end
