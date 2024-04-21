@@ -87,5 +87,8 @@ RSpec.describe "User", type: :model do
   describe 'ユーザーのアソシエーション関連' do
     let(:user) { create(:user) }
     let(:post) { create(:post, user: user) }
+
+    it 'postモデルとの関連付け正しく設定されていること' do
+    end
   end
 end
