@@ -49,13 +49,13 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーのパスワードが6文字未満の場合は無効であること' do
-      user_without_password = FactoryBot.build(:user, password: 'Aa111')
-      expect(user_without_password).to be_invalid
+      user_less_letter_password = FactoryBot.build(:user, password: 'Aa111')
+      expect(user_less_letter_password).to be_invalid
     end
 
     it 'ユーザーのパスワードが12文字を超える場合は無効であること' do
-      user_without_password = FactoryBot.build(:user, password: 'Aa11111111111')
-      expect(user_without_password).to be_invalid
+      user_over_letter_password = FactoryBot.build(:user, password: 'Aa11111111111')
+      expect(user_over_letter_password).to be_invalid
     end
   end
 end
