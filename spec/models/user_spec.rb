@@ -33,6 +33,8 @@ RSpec.describe "User", type: :model do
     end
 
     it "ユーザーのメールアドレスの途中に空白がある場合は無効であること" do
+      user_with_blank_email = FactoryBot.build(:user, email: "a @a")
+      expect(user_with_blank_email).to be_invalid
     end
   end
 end
