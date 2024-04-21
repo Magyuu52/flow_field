@@ -44,6 +44,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーにパスワードがない場合は無効であること' do
+      user_without_password = FactoryBot.build(:user, password: '')
+      expect(user_without_password).to be_invalid
     end
   end
 end
