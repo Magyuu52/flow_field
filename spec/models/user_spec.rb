@@ -42,5 +42,8 @@ RSpec.describe "User", type: :model do
       user_duplicate_email = FactoryBot.build(:user, email: user.email)
       expect(user_duplicate_email).to be_invalid
     end
+
+    it 'ユーザーにパスワードがない場合は無効であること' do
+    end
   end
 end
