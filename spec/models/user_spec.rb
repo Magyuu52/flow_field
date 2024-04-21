@@ -69,6 +69,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'パスワードに数字が含まれない場合は無効であること' do
+      user_without_numbers_password = FactoryBot.build(:user, password: 'aaaAAA')
+      expect(user_without_numbers_password).to be_invalid
     end
   end
 end
