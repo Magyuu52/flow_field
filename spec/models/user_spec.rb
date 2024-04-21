@@ -47,5 +47,8 @@ RSpec.describe "User", type: :model do
       user_without_password = FactoryBot.build(:user, password: '')
       expect(user_without_password).to be_invalid
     end
+
+    it 'ユーザーのパスワードが6文字未満の場合は無効であること' do
+    end
   end
 end
