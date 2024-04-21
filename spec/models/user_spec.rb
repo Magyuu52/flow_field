@@ -64,6 +64,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'パスワードに英小文字が含まれない場合無効な状態であること' do
+      user_without_lowercase_letter_password = FactoryBot.build(:user, password: 'AAA111')
+      expect(user_without_lowercase_letter_password).to be_invalid
     end
   end
 end
