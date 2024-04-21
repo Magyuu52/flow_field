@@ -41,14 +41,14 @@ RSpec.describe "Users", type: :system do
     it '自分のプロフィール画面に編集ボタンが表示されること' do
       visit user_path(user.id)
       within '.user-plofile' do
-        expect(page).to have_content 'プロフィール編集'
+        expect(page).to have_link 'プロフィール編集'
       end
     end
 
     it '他のユーザープロフィール画面に編集ボタンが表示されないこと' do
       visit user_path(other_user.id)
       within '.user-plofile' do
-        expect(page).to have_no_content 'プロフィール編集'
+        expect(page).to_not have_link 'プロフィール編集'
       end
     end
 
@@ -78,7 +78,7 @@ RSpec.describe "Users", type: :system do
     it 'ユーザーをフォローできること' do
       visit user_path(other_user.id)
       click_on 'フォローする'
-      expect(page).to have_content 'フォロー済み'
+      expect(page).to have_link 'フォロー済み'
       expect(user.followings.count).to eq(1)
       expect(other_user.followers.count).to eq(1)
     end
@@ -87,7 +87,7 @@ RSpec.describe "Users", type: :system do
       user.follow(other_user.id)
       visit user_path(other_user.id)
       click_on 'フォロー済み'
-      expect(page).to have_content 'フォローする'
+      expect(page).to have_link 'フォローする'
       expect(user.followings.count).to eq(0)
       expect(other_user.followers.count).to eq(0)
     end
