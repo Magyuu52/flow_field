@@ -95,6 +95,8 @@ RSpec.describe "User", type: :model do
 
   describe 'ユーザーのインスタンスメソッド関連' do
     context "フォロー機能" do
+      let(:user) { create(:user) }
+      let(:other_user) { create(:user) }
     end
 
     context "検索機能" do
