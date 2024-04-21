@@ -92,4 +92,7 @@ RSpec.describe "User", type: :model do
       expect(user.posts).to include post
     end
   end
+
+  describe 'ユーザーのインスタンスメソッド関連' do
+  end
 end
