@@ -31,5 +31,8 @@ RSpec.describe "User", type: :model do
       user_with_double_at_mark_email = FactoryBot.build(:user, email: "a@@a")
       expect(user_with_double_at_mark_email).to be_invalid
     end
+
+    it "ユーザーのメールアドレスの途中に空白がある場合は無効であること" do
+    end
   end
 end
