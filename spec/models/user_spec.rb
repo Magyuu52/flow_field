@@ -57,5 +57,8 @@ RSpec.describe "User", type: :model do
       user_over_letter_password = FactoryBot.build(:user, password: 'Aa11111111111')
       expect(user_over_letter_password).to be_invalid
     end
+
+    it 'パスワードに英大文字が含まれない場合無効な状態であること' do
+    end
   end
 end
