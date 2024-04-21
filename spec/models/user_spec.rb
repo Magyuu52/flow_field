@@ -26,5 +26,8 @@ RSpec.describe "User", type: :model do
       user_without_at_mark_email = FactoryBot.build(:user, email: "aaa")
       expect(user_without_at_mark_email).to be_invalid
     end
+
+    it "ユーザーのメールアドレスに「@」が二つある場合は無効であること" do
+    end
   end
 end
