@@ -54,6 +54,7 @@ RSpec.describe "Users", type: :system do
 
     it 'プロフィールを更新できること' do
       visit edit_user_path(user.id)
+      attach_file 'user[image]', "spec/fixtures/image/test_user.png"
       fill_in '名前', with: 'new-testuser'
       fill_in 'メールアドレス', with: 'newemail@example.com'
       fill_in 'パスワード', with: 'Newpassword1'
