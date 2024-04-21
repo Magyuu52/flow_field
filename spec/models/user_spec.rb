@@ -16,5 +16,8 @@ RSpec.describe "User", type: :model do
       user_over_name = FactoryBot.build(:user, name: 'a' * 21)
       expect(user_over_name).to be_invalid
     end
+
+    it 'ユーザーにメールアドレスがない場合は無効であること' do
+    end
   end
 end
