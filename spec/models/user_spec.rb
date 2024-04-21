@@ -8,6 +8,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーに名前がない場合は無効であること' do
+      user_without_name = FactoryBot.build(:user, name: '')
+      expect(user_without_name).to be_invalid
     end
   end
 end
