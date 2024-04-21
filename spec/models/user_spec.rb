@@ -67,5 +67,8 @@ RSpec.describe "User", type: :model do
       user_without_lowercase_letter_password = FactoryBot.build(:user, password: 'AAA111')
       expect(user_without_lowercase_letter_password).to be_invalid
     end
+
+    it 'パスワードに数字が含まれない場合は無効であること' do
+    end
   end
 end
