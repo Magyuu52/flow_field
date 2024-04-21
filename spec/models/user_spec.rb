@@ -94,5 +94,10 @@ RSpec.describe "User", type: :model do
   end
 
   describe 'ユーザーのインスタンスメソッド関連' do
+    context "フォロー機能" do
+    end
+
+    context "検索機能" do
+    end
   end
 end
