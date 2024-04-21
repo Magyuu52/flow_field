@@ -74,7 +74,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーのパスワードと確認用パスワードが一致しない場合は無効であること' do
-
+      user_password_not_match = FactoryBot.build(:user, password_confirm: 'not_match')
+      expect(user_password_not_match).to be_invalid
     end
   end
 end
