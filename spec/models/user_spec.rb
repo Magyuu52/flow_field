@@ -77,5 +77,8 @@ RSpec.describe "User", type: :model do
       user_password_not_match = FactoryBot.build(:user, password_confirm: 'not_match')
       expect(user_password_not_match).to be_invalid
     end
+
+    it 'ユーザーの自己紹介文が100文字を超える場合は無効であること' do
+    end
   end
 end
