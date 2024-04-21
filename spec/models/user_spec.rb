@@ -79,6 +79,8 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーの自己紹介文が100文字を超える場合は無効であること' do
+      user_over_letter_introduction = FactoryBot.build(:user, introduction: 'a' * 100)
+      expect(user_over_letter_introduction).to be_invalid
     end
   end
 end
