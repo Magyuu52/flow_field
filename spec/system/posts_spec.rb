@@ -61,14 +61,14 @@ RSpec.describe "Posts", type: :system do
     it '自分の投稿に編集ボタンが表示されること' do
       visit post_path(post.id)
       within ".post-details-top" do
-        expect(page).to have_content '編集'
+        expect(page).to have_link '編集'
       end
     end
 
     it '他のユーザーの投稿には編集ボタンが表示されないこと' do
       visit post_path(other_post.id)
       within ".post-details-top" do
-        expect(page).to_not have_content '編集'
+        expect(page).to_not have_link '編集'
       end
     end
 
