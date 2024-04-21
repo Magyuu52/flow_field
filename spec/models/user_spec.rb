@@ -83,4 +83,7 @@ RSpec.describe "User", type: :model do
       expect(user_over_letter_introduction).to be_invalid
     end
   end
+
+  describe 'ユーザーのアソシエーション関連' do
+  end
 end
