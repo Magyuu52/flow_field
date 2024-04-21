@@ -21,5 +21,8 @@ RSpec.describe "User", type: :model do
       user_without_email = FactoryBot.build(:user, email: '')
       expect(user_without_email).to be_invalid
     end
+
+    it "ユーザーのメールアドレスに「@」がない場合は無効であること" do
+    end
   end
 end
