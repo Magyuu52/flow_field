@@ -84,6 +84,9 @@ RSpec.describe "User", type: :model do
     end
 
     it 'ユーザーのアイコン画像に不適合のファイルを保存した場合は無効であること' do
+      user_wrong_file_image = FactoryBot.create(:user)
+      user_wrong_file_image.image = fixture_file_upload('spec/fixtures/video/test_post.mp4')
+      expect(user_wrong_file_image).to be_invalid
     end
   end
 
