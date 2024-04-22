@@ -58,6 +58,7 @@ RSpec.describe "Post", type: :model do
       let!(:like) { create(:like, post: liked_post, user: other_user) }
       
       it 'いいねがされている投稿の場合、liked?による判定がtrueになること' do
+        expect(liked_post.liked?(other_user)).to eq true
       end
     end
 
