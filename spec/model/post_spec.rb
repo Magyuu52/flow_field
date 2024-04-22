@@ -34,6 +34,9 @@ RSpec.describe "Post", type: :model do
     end
 
     it '投稿のフロー動画に不適合のファイルを保存した場合は無効であること' do
+      post_wrong_file_flow_video = FactoryBot.create(:post)
+      post_wrong_file_flow_video.flow_video = fixture_file_upload('spec/fixtures/image/test_post.jpg')
+      expect(post_wrong_file_flow_video).to be_invalid
     end
   end
 
