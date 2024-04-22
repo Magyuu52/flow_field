@@ -22,5 +22,8 @@ RSpec.describe Relationship, type: :model do
   describe 'データの一意性' do
     let(:user1) { create(:relationship) }
     let(:user2) { build(:relationship) }
+
+    it '自分自身はフォローをできないこと' do
+    end
   end
 end
