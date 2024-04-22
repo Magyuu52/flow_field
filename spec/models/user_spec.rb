@@ -115,6 +115,9 @@ RSpec.describe "User", type: :model do
     context "検索機能" do
       let(:user1) { create(:user, name: 'user1') }
       let(:user2) { create(:user, name: 'user2') }
+
+      it "検索フォームにキーワードを入力すると、そのキーワードを持つユーザーモデルのみ取得されること" do
+      end
     end
   end
 end
