@@ -48,4 +48,7 @@ RSpec.describe "Post", type: :model do
       expect(user.posts).to include post
     end
   end
+
+  describe '投稿のインスタンスメソッド関連' do
+  end
 end
