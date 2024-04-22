@@ -28,6 +28,9 @@ RSpec.describe "Post", type: :model do
     end
 
     it '投稿のスポット画像に不適合のファイルを保存した場合は無効であること' do
+      post_wrong_file_spot_image = FactoryBot.create(:post)
+      post_wrong_file_spot_image.spot_image = fixture_file_upload('spec/fixtures/video/test_post.mp4')
+      expect(post_wrong_file_spot_image).to be_invalid
     end
   end
 
