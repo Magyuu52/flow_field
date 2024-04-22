@@ -51,6 +51,11 @@ RSpec.describe "Post", type: :model do
 
   describe '投稿のインスタンスメソッド関連' do
     context 'いいね機能' do
+      let(:user) { create(:user) }
+      let(:liked_post) { create(:post, user: user) }
+      let(:not_liked_post) { create(:post, user: user) }
+      let(:other_user) { create(:user) }
+      let!(:like) { create(:like, post: liked_post, user: other_user) }
     end
 
     context '検索機能' do
