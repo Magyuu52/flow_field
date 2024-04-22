@@ -67,6 +67,10 @@ RSpec.describe "Post", type: :model do
     end
 
     context '検索機能' do
+      let(:user) { create(:user, name: 'user1') }
+      let(:post1) { create(:post, title: 'test_post_title') }
+      let(:post2) { create(:post, address: 'test_post_address') }
+      let(:post3) { create(:post, user_name: 'user1', user: user) }
     end
   end
 end
