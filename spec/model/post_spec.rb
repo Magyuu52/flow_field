@@ -71,6 +71,15 @@ RSpec.describe "Post", type: :model do
       let(:post1) { create(:post, title: 'test_post_title') }
       let(:post2) { create(:post, address: 'test_post_address') }
       let(:post3) { create(:post, user_name: 'user1', user: user) }
+
+      it '検索フォームにキーワードを入力すると、そのキーワードを持つ投稿のデータのみ取得されること(titleカラム)' do
+      end
+
+      it '検索フォームにキーワードを入力すると、そのキーワードを持つ投稿のデータのみ取得されること(addressカラム)' do
+      end
+
+      it '検索フォームにキーワードを入力すると、そのキーワードを持つ投稿のデータのみ取得されること(user_nameカラム)' do
+      end
     end
   end
 end
