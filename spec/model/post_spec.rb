@@ -29,5 +29,7 @@ RSpec.describe "Post", type: :model do
   end
 
   describe '投稿のアソシエーション関連' do
+    let(:user) { create(:user) }
+    let(:post) { create(:post, user: user) }
   end
 end
