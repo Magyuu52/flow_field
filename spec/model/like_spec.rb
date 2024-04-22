@@ -29,6 +29,8 @@ RSpec.describe Like, type: :model do
     let!(:like) { create(:like, post_id: post.id, user_id: user.id) }
 
     it '同じ投稿に連続でいいねをできないこと' do
+      invalid_like = FactoryBot.build(:like, post_id: post.id, user_id: user.id)
+      expect(invalid_like).to be_invalid
     end
   end
 end
