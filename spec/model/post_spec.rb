@@ -48,6 +48,9 @@ RSpec.describe "Post", type: :model do
     it 'userモデルとの関連付けが正しく設定されていること' do
       expect(user.posts).to include post
     end
+
+    it 'likeモデルとの関連付けが正しく設定されていること' do
+    end
   end
 
   describe '投稿のインスタンスメソッド関連' do
