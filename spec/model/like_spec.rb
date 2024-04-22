@@ -39,6 +39,8 @@ RSpec.describe Like, type: :model do
     end
 
     it 'いいねされた投稿が異なる場合、いいねしたユーザーが異なる場合は有効であること' do
+      like_same_user = FactoryBot.create(:like, post_id: other_post.id, user_id: user.id)
+      expect(like_same_user).to be_valid
     end
   end
 end
