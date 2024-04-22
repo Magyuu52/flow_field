@@ -82,6 +82,9 @@ RSpec.describe "User", type: :model do
       user_over_letter_introduction = FactoryBot.build(:user, introduction: 'a' * 101)
       expect(user_over_letter_introduction).to be_invalid
     end
+
+    it 'ユーザーのアイコン画像に不適合のファイルを保存した場合は無効であること' do
+    end
   end
 
   describe 'ユーザーのアソシエーション関連' do
