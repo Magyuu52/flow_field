@@ -120,6 +120,9 @@ RSpec.describe "User", type: :model do
         expect(User.search("1")).to include user1
         expect(User.search("1")).to_not include user2
       end
+    
+      it "検索フォームのキーワードが未入力の場合、全てのユーザーモデルが取得されること" do
+      end
     end
   end
 end
