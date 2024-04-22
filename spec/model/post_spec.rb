@@ -50,6 +50,7 @@ RSpec.describe "Post", type: :model do
     end
 
     it 'likeモデルとの関連付けが正しく設定されていること' do
+      expect(post.likes).to include like
     end
   end
 
