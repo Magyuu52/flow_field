@@ -21,5 +21,8 @@ RSpec.describe "Post", type: :model do
       post_without_address = FactoryBot.build(:post, address: '')
       expect(post_without_address).to be_invalid
     end
+
+    it '投稿の内容文が500文字を超える場合は無効であること' do
+    end
   end
 end
