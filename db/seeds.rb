@@ -18,3 +18,16 @@
   )
 end
 
+50.times do |n|
+  title = "sample-spot#{n + 1}"
+  address = Faker::Address.full_address
+  content = "これは#{n + 1}番目のスポットの投稿です。"
+  user_id = Faker::Number.between(from: 1, to: 50)
+
+  Post.create(
+    title: title,
+    address: address,
+    content: content,
+    user_id: user_id
+  )
+end
