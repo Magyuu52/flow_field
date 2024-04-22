@@ -50,5 +50,10 @@ RSpec.describe "Post", type: :model do
   end
 
   describe '投稿のインスタンスメソッド関連' do
+    context 'いいね機能' do
+    end
+
+    context '検索機能' do
+    end
   end
 end
