@@ -62,6 +62,7 @@ RSpec.describe "Post", type: :model do
       end
 
       it 'いいねがされていない投稿の場合、liked?による判定がfalseになること' do
+        expect(not_liked_post.liked?(other_user)).to eq false
       end
     end
 
