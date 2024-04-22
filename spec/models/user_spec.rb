@@ -97,6 +97,10 @@ RSpec.describe "User", type: :model do
     context "フォロー機能" do
       let(:user) { create(:user) }
       let(:other_user) { create(:user) }
+
+      before do
+        user.follow(other_user.id)
+      end
     end
 
     context "検索機能" do
