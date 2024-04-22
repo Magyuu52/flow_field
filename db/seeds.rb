@@ -18,6 +18,17 @@
   )
 end
 
+users = User.all
+users.each do |user|
+  following_users = users - [user]
+  following_users.shuffle.take(rand(0..50)).each do |following_user|
+    Relationship.find_or_create_by!(
+      follower_id: user.id,
+      followed_id: following_user.id
+    )
+  end
+end
+
 50.times do |n|
   title = "sample-spot#{n + 1}"
   address = Faker::Address.full_address
