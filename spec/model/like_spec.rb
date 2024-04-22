@@ -27,5 +27,8 @@ RSpec.describe Like, type: :model do
     let(:other_post) { create(:post, user: user) }
     let(:other_user) { create(:user) }
     let!(:like) { create(:like, post_id: post.id, user_id: user.id) }
+
+    it '同じ投稿に連続でいいねをできないこと' do
+    end
   end
 end
