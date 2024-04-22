@@ -20,11 +20,11 @@ RSpec.describe Relationship, type: :model do
   end
 
   describe 'データの一意性' do
-    let(:user1) { create(:relationship) }
-    let(:user2) { build(:relationship) }
+    let(:user) { create(:relationship) }
+    let(:relationship) { build(:relationship) }
 
     it '自分自身はフォローをできないこと' do
-      invalid_relationship = FactoryBot.build(:relationship, follower_id: user1.follower_id, followed_id: user1.followed_id)
+      invalid_relationship = FactoryBot.build(:relationship, follower_id: user.follower_id, followed_id: user.followed_id)
       expect(invalid_relationship).to be_invalid
     end
   end
