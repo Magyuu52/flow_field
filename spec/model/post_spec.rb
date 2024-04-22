@@ -18,6 +18,8 @@ RSpec.describe "Post", type: :model do
     end
 
     it '投稿に住所がない場合は無効であること' do
+      post_without_address = FactoryBot.build(:post, address: '')
+      expect(post_without_address).to be_invalid
     end
   end
 end
