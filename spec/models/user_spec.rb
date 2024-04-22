@@ -117,6 +117,8 @@ RSpec.describe "User", type: :model do
       let(:user2) { create(:user, name: 'user2') }
 
       it "検索フォームにキーワードを入力すると、そのキーワードを持つユーザーモデルのみ取得されること" do
+        expect(User.search("1")).to include user1
+        expect(User.search("1")).to_not include user2
       end
     end
   end
