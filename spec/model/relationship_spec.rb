@@ -32,5 +32,8 @@ RSpec.describe Relationship, type: :model do
       same_follower_id_relationship = FactoryBot.build(:relationship, follower_id: relationship.follower_id, followed_id: user.followed_id)
       expect(same_follower_id_relationship).to be_valid
     end
+
+    it 'フォロワーのユーザーのidが異なる場合、フォローしているユーザーのidが同じでも有効であること' do
+    end
   end
 end
