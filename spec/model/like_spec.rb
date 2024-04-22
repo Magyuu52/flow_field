@@ -32,5 +32,8 @@ RSpec.describe Like, type: :model do
       invalid_like = FactoryBot.build(:like, post_id: post.id, user_id: user.id)
       expect(invalid_like).to be_invalid
     end
+
+    it 'いいねされた投稿が同じでも、ユーザーが異なる場合は有効であること' do
+    end
   end
 end
