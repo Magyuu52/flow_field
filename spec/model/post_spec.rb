@@ -23,6 +23,8 @@ RSpec.describe "Post", type: :model do
     end
 
     it '投稿の内容文が500文字を超える場合は無効であること' do
+      post_over_content = FactoryBot.build(:post, title: 'a' * 501)
+      expect(post_over_content).to be_invalid
     end
   end
 end
