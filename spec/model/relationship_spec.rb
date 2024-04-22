@@ -20,5 +20,7 @@ RSpec.describe Relationship, type: :model do
   end
 
   describe 'データの一意性' do
+    let(:user1) { create(:relationship) }
+    let(:user2) { build(:relationship) }
   end
 end
