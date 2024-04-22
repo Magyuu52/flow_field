@@ -42,3 +42,15 @@ end
     user_id: user_id
   )
 end
+
+users = User.all
+posts = Post.all
+users.each do |user|
+  liked_posts = posts.sample(rand(0..50))
+  liked_posts.each do |post|
+    Like.find_or_create_by!(
+      user_id: user.id,
+      post_id: post.id
+    )
+  end
+end
