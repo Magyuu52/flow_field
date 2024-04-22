@@ -107,6 +107,8 @@ RSpec.describe "User", type: :model do
       end
       
       it 'ユーザーのフォローを解除するとfollowing?による判定がfalseになること' do
+        user.unfollow(other_user.id)
+        expect(user.following?(other_user)).to eq false
       end
     end
 
