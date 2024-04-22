@@ -20,4 +20,7 @@ RSpec.describe Like, type: :model do
       expect(like).to be_invalid
     end
   end
+
+  describe 'データの一意性' do
+  end
 end
