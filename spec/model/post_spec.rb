@@ -11,5 +11,8 @@ RSpec.describe "Post", type: :model do
       post_without_title = FactoryBot.build(:post, title: '')
       expect(post_without_title).to be_invalid
     end
+
+    it '投稿のタイトルが30文字を超える場合は無効であること' do
+    end
   end
 end
