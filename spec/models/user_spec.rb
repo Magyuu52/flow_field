@@ -101,6 +101,9 @@ RSpec.describe "User", type: :model do
       before do
         user.follow(other_user.id)
       end
+      
+      it 'ユーザーをフォローすると、following?による判定がtrueになること' do
+      end
     end
 
     context "検索機能" do
