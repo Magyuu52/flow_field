@@ -88,6 +88,7 @@ RSpec.describe "Post", type: :model do
       end
     
       it '検索フォームのキーワードが未入力の場合、全ての投稿のデータが取得されること' do
+        expect(Post.search("")).to include post1, post2, post3
       end
     end
   end
