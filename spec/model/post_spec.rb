@@ -8,6 +8,8 @@ RSpec.describe "Post", type: :model do
     end
 
     it '投稿にタイトルがない場合は無効であること' do
+      post_without_title = FactoryBot.build(:post, title: '')
+      expect(post_without_title).to be_invalid
     end
   end
 end
