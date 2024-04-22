@@ -56,6 +56,9 @@ RSpec.describe "Post", type: :model do
       let(:not_liked_post) { create(:post, user: user) }
       let(:other_user) { create(:user) }
       let!(:like) { create(:like, post: liked_post, user: other_user) }
+      
+      it 'いいねがされている投稿の場合、liked?による判定がtrueになること' do
+      end
     end
 
     context '検索機能' do
