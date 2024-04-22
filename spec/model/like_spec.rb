@@ -7,6 +7,7 @@ RSpec.describe Like, type: :model do
     let(:like) { create(:like, post_id: post.id, user_id: user.id) }
 
     it 'likeモデルに必要なパラメーターが揃っていれば有効であること' do
+      expect(like).to be_valid
     end
   end
 end
