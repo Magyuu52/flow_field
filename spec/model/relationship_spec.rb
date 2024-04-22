@@ -14,6 +14,8 @@ RSpec.describe Relationship, type: :model do
     end
 
     it 'relationモデルのfollowed_idがnilの場合は無効であること' do
+      relationship.followed_id = nil
+      expect(relationship).to be_invalid
     end
   end
 end
