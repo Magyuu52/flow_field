@@ -27,4 +27,7 @@ RSpec.describe "Post", type: :model do
       expect(post_over_content).to be_invalid
     end
   end
+
+  describe '投稿のアソシエーション関連' do
+  end
 end
