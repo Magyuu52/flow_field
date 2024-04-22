@@ -18,4 +18,7 @@ RSpec.describe Relationship, type: :model do
       expect(relationship).to be_invalid
     end
   end
+
+  describe 'データの一意性' do
+  end
 end
