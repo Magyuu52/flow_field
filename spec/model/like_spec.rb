@@ -22,5 +22,10 @@ RSpec.describe Like, type: :model do
   end
 
   describe 'データの一意性' do
+    let(:user) { create(:user) }
+    let(:post) { create(:post, user: user) }
+    let(:other_post) { create(:post, user: user) }
+    let(:other_user) { create(:user) }
+    let!(:like) { create(:like, post_id: post.id, user_id: user.id) }
   end
 end
