@@ -43,6 +43,7 @@ RSpec.describe "Post", type: :model do
   describe '投稿のアソシエーション関連' do
     let(:user) { create(:user) }
     let(:post) { create(:post, user: user) }
+    let!(:like) { create(:like, post: post, user: user) }
 
     it 'userモデルとの関連付けが正しく設定されていること' do
       expect(user.posts).to include post
