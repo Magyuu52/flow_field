@@ -103,6 +103,7 @@ RSpec.describe "User", type: :model do
       end
       
       it 'ユーザーをフォローすると、following?による判定がtrueになること' do
+        expect(user.following?(other_user)).to eq true
       end
     end
 
