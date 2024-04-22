@@ -73,12 +73,18 @@ RSpec.describe "Post", type: :model do
       let(:post3) { create(:post, user_name: 'user1', user: user) }
 
       it '検索フォームにキーワードを入力すると、そのキーワードを持つ投稿のデータのみ取得されること(titleカラム)' do
+        expect(Post.search("title")).to include post1
+        expect(Post.search("title")).to_not include post2, post3
       end
 
       it '検索フォームにキーワードを入力すると、そのキーワードを持つ投稿のデータのみ取得されること(addressカラム)' do
+        expect(Post.search("address")).to include post2
+        expect(Post.search("address")).to_not include post1, post3
       end
 
       it '検索フォームにキーワードを入力すると、そのキーワードを持つ投稿のデータのみ取得されること(user_nameカラム)' do
+        expect(Post.search("user1")).to include post3
+        expect(Post.search("user1")).to_not include post1, post2
       end
     end
   end
