@@ -11,6 +11,8 @@ RSpec.describe Like, type: :model do
     end
 
     it 'likeモデルのいいねしたユーザーのidがnilの場合は無効であること' do
+      like.user_id = nil
+      expect(like).to be_invalid
     end
   end
 end
