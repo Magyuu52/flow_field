@@ -24,6 +24,8 @@ RSpec.describe Relationship, type: :model do
     let(:user2) { build(:relationship) }
 
     it '自分自身はフォローをできないこと' do
+      invalid_relationship = FactoryBot.build(:relationship, follower_id: user1.follower_id, followed_id: user1.followed_id)
+      expect(invalid_relationship).to be_invalid
     end
   end
 end
