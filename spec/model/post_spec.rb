@@ -16,5 +16,8 @@ RSpec.describe "Post", type: :model do
       post_over_title = FactoryBot.build(:post, title: 'a' * 31)
       expect(post_over_title).to be_invalid
     end
+
+    it '投稿に住所がない場合は無効であること' do
+    end
   end
 end
