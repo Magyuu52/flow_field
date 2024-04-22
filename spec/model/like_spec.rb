@@ -9,5 +9,8 @@ RSpec.describe Like, type: :model do
     it 'likeモデルに必要なパラメーターが揃っていれば有効であること' do
       expect(like).to be_valid
     end
+
+    it 'likeモデルのいいねしたユーザーのidがnilの場合は無効であること' do
+    end
   end
 end
