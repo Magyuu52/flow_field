@@ -94,7 +94,7 @@ RSpec.describe "User", type: :model do
   end
 
   describe 'ユーザーのインスタンスメソッド関連' do
-    context "フォロー機能" do
+    context 'フォロー機能' do
       let(:user) { create(:user) }
       let(:other_user) { create(:user) }
 
@@ -112,16 +112,17 @@ RSpec.describe "User", type: :model do
       end
     end
 
-    context "検索機能" do
+    context '検索機能' do
       let(:user1) { create(:user, name: 'user1') }
       let(:user2) { create(:user, name: 'user2') }
 
-      it "検索フォームにキーワードを入力すると、そのキーワードを持つユーザーモデルのみ取得されること" do
+      it '検索フォームにキーワードを入力すると、そのキーワードを持つユーザーモデルのみ取得されること' do
         expect(User.search("1")).to include user1
         expect(User.search("1")).to_not include user2
       end
     
-      it "検索フォームのキーワードが未入力の場合、全てのユーザーモデルが取得されること" do
+      it '検索フォームのキーワードが未入力の場合、全てのユーザーモデルが取得されること' do
+        expect(User.search("")).to include user1, user2
       end
     end
   end
