@@ -26,6 +26,9 @@ RSpec.describe "Post", type: :model do
       post_over_content = FactoryBot.build(:post, title: 'a' * 501)
       expect(post_over_content).to be_invalid
     end
+
+    it '投稿のスポット画像に不適合のファイルを保存した場合は無効であること' do
+    end
   end
 
   describe '投稿のアソシエーション関連' do
