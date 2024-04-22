@@ -7,5 +7,8 @@ RSpec.describe Relationship, type: :model do
     it 'relationモデルに必要なパラメーターが揃っていれば有効であること' do
       expect(relationship).to be_valid
     end
+
+    it 'relationモデルのfollower_idがnilの場合は無効であること' do
+    end
   end
 end
