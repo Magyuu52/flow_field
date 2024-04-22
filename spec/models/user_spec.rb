@@ -105,6 +105,9 @@ RSpec.describe "User", type: :model do
       it 'ユーザーをフォローすると、following?による判定がtrueになること' do
         expect(user.following?(other_user)).to eq true
       end
+      
+      it 'ユーザーのフォローを解除するとfollowing?による判定がfalseになること' do
+      end
     end
 
     context "検索機能" do
