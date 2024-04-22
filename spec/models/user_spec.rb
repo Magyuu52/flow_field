@@ -113,6 +113,8 @@ RSpec.describe "User", type: :model do
     end
 
     context "検索機能" do
+      let(:user1) { create(:user, name: 'user1') }
+      let(:user2) { create(:user, name: 'user2') }
     end
   end
 end
