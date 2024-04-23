@@ -39,8 +39,10 @@ end
     title: title,
     address: address,
     content: content,
-    user_id: user_id
+    user_id: user_id,
   )
+
+  post.spot_image.attach(io: File.open(Rails.root.join("app/assets/images/seeds/spot_image#{n + 1}.jpg")),filename: 'spot_image#{n + 1}.jpg')
 end
 
 users = User.all
