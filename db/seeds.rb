@@ -35,7 +35,7 @@ end
   content = "これは#{n + 1}番目のスポットの投稿です。"
   user_id = Faker::Number.between(from: 1, to: 50)
 
-  Post.create(
+  post = Post.create!(
     title: title,
     address: address,
     content: content,
