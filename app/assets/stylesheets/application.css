@@ -1236,6 +1236,12 @@ h6 {
   font-size: 14px;
 }
 
+@media (min-width: 767px) {
+  #search-form input {
+    min-width: 400px;
+  }
+}
+
 @media (max-width: 767px) {
   #search-form {
     padding: 0;
