@@ -1124,6 +1124,12 @@ h6 {
   width: 75%;
 }
 
+@media (max-width: 767px) {
+  #about .btn {
+    width: 100%;
+  }
+}
+
 @media (min-width: 120px) {
   #about .btn-area-sm {
     display: block;
