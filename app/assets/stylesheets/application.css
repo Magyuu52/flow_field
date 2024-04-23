@@ -1220,9 +1220,13 @@ h6 {
   font-size: 14px;
 }
 
-@media (min-width: 767px) {
+@media (max-width: 767px) {
+  #search-form {
+    padding: 0;
+  }
+
   #search-form input {
-    min-width: 400px;
+    padding: 0px 20px;
   }
 }
 
@@ -1241,12 +1245,6 @@ h6 {
 
 #search-form button:hover {
   background: #e0072f;
-}
-
-@media (max-width: 460px) {
-  #search-form button {
-    margin-top: 10px;
-  }
 }
 
 /*--------------------------------------------------------------
