@@ -8,7 +8,7 @@
       <%= link_to "新規登録してスポットを投稿する", new_user_path, class:"top-btn-new" %>
       <div class="d-flex footer-btn-area">
           <%= link_to "ログインはこちら", login_path, class:"top-btn me-4" %>
-          <%= link_to "ゲストログインはこちら", login_path, class:"top-btn" %>
+          <%= link_to "ゲストログインはこちら", guest_login_path, data: { turbo_method: :post }, class:"top-btn" %>
       </div>
     <% end %>
     <section id="search-form">
