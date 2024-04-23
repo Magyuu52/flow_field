@@ -642,7 +642,7 @@ h6 {
 
 @media (max-width: 991px) {
   #top .top-btn-new {
-    width: 100%;
+    width: 80%;
   }
 }
 
@@ -683,9 +683,14 @@ h6 {
   }
 }
 
+#top .footer-btn-area {
+  display: flex;
+}
+
 @media (max-width: 991px) {
   #top .footer-btn-area {
-    width: 100%;
+    display: block;
+    width: 80%;
   }
 }
 
