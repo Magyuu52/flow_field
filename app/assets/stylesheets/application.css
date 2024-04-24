@@ -1064,6 +1064,12 @@ h6 {
   font-size: 13px;
 }
 
+@media (max-width: 576px) {
+  #table .follow-count-area {
+    flex-direction: column;
+  }
+}
+
 #table .btn-1 {
   font-family: "Raleway", sans-serif;
   font-weight: bold;
@@ -1086,6 +1092,22 @@ h6 {
   border: 2px solid #f82249;
 }
 
+@media (max-width: 576px) {
+  #table .btn-area-small .btn-1 {
+    font-size: 12px;
+    padding: 3px 10px;
+    margin: 0px 0px 0px 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  #table .btn-area-small .btn-2 {
+    font-size: 12px;
+    padding: 1px 8px;
+    margin: 0px;
+  }
+}
+
 #table .btn-3 {
   display: block;
   margin: 0 auto;
@@ -1097,6 +1119,28 @@ h6 {
   padding: 10px 10px;
   width: 70%;
   background-color: #f82249;
+}
+
+#table .btn-area-large {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 767px) {
+  #table .btn-area-large {
+    display: none;
+  }
+}
+
+#table .btn-area-small {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  #table .btn-area-small {
+    display: flex;
+    justify-content: end;
+  }
 }
 
 /*--------------------------------------------------------------
