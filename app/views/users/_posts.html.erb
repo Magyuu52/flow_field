@@ -21,8 +21,15 @@
         <div class="col-md-2">
           <time><%= l post.created_at, format: :long %></time>
         </div>
+        <div class="post-image-large mb-3">
+          <% if post.spot_image.attached? %>
+            <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
+          <% else %>
+            <%= image_tag("default_spot.jpg", class:"img-fluid") %>
+          <% end %>
+        </div>
         <div class="col-md-10">
-          <div class="post-item">
+          <div class="post-image-small">
             <% if post.spot_image.attached? %>
               <%= image_tag(rails_blob_path(post.spot_image), class:"img-fluid") %>
             <% else %>

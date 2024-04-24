@@ -830,9 +830,38 @@ h6 {
   margin: 0 auto;
 }
 
+#details .user-plofile img {
+  width: 90px;
+  height: 90px;
+}
+
+@media (max-width: 481px) {
+  #details .user-plofile img {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+#details .user-plofile {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+@media (max-width: 576px) {
+  #details {
+    padding: 60px 10px 20px 10px;
+  }
+}
+
 #details .separator {
   height: 60px;
   background-color: #112363;
+}
+
+@media (max-width: 576px) {
+  #details .separator {
+    height: 45px;
+  }
 }
 
 #details .post-details-top {
@@ -849,6 +878,12 @@ h6 {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+}
+
+@media (max-width: 576px) {
+  #details .details-wrapper p {
+    font-size: 15px;
+  }
 }
 
 #details .btn-1 {
@@ -871,6 +906,16 @@ h6 {
   margin: 0px 5px 0px 5px;
   color: #f82249;
   border: 2px solid #f82249;
+}
+
+@media (max-width: 481px) {
+  #details .btn-1 {
+    padding: 10px 20px;
+  }
+
+  #details .btn-1 {
+    padding: 8px 18px;
+  }
 }
 
 #map {
