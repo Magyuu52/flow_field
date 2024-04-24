@@ -874,6 +874,18 @@ h6 {
   margin-bottom: 0;
 }
 
+#details .post-likes-area {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  #details .post-likes-area {
+    align-items: initial;
+    justify-content: space-between;
+  }
+}
+
 #details .details-wrapper p {
   text-align: center;
   font-size: 18px;
