@@ -31,7 +31,7 @@ users.each do |user|
   end
 end
 
-50.times do |n|
+30.times do |n|
   title = "sample-spot#{n + 1}"
   address = Faker::Address.full_address
   content = "これは#{n + 1}番目のスポットの投稿です。"
