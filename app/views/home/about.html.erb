@@ -28,7 +28,7 @@
         <% if @current_user %>
           <%= link_to "新規スポットを投稿する", new_post_path, class:"btn" %>
         <% else %>
-          <%= link_to "新規登録してスポットを投稿する", new_post_path, class:"btn" %>
+          <%= link_to "新規登録してスポットを投稿する", new_user_path, class:"btn" %>
         <% end %>
       </div>
       <div class="text-center mt-5">
