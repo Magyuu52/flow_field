@@ -72,7 +72,7 @@ end
 
   post = Post.create!(
     title: title,
-    address: address,
+    address: addresses[n],
     content: content,
     user_id: user_id,
   )
