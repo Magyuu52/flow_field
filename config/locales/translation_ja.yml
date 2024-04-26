@@ -69,6 +69,7 @@ ja:
         followings: フォロー中  #g
         image_attachment: :activerecord.models.image_attachment  #g
         image_blob: :activerecord.models.image_blob  #g
+        image: アイコン画像
         introduction: 導入  #g
         name: 名前  #g
         password: パスワード  #g
