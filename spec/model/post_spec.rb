@@ -38,6 +38,9 @@ RSpec.describe "Post", type: :model do
       post_wrong_file_flow_video.flow_video = fixture_file_upload('spec/fixtures/image/test_post.jpg')
       expect(post_wrong_file_flow_video).to be_invalid
     end
+
+    it "ファイルサイズが50MBを超えるフロー動画を保存した場合は無効であること" do
+    end
   end
 
   describe '投稿のアソシエーション関連' do
