@@ -40,6 +40,9 @@ RSpec.describe "Post", type: :model do
     end
 
     it "ファイルサイズが50MBを超えるフロー動画を保存した場合は無効であること" do
+      post_over_filesize_flow_video = FactoryBot.build(:post)
+      post_over_filesize_flow_video.flow_video = fixture_file_upload("spec/fixtures/video/test_post_invalid.mp4")
+      expect(post_over_filesize_flow_video).to be_invalid
     end
   end
 
