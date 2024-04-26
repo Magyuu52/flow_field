@@ -90,6 +90,9 @@ RSpec.describe "User", type: :model do
     end
 
     it "ファイルサイズが5MBを超えるアイコン画像を保存した場合は無効であること" do
+      post_over_filesize_image = FactoryBot.build(:user)
+      post_over_filesize_image.image = fixture_file_upload("spec/fixtures/image/test_user_invalid.png")
+      expect(post_over_filesize_image).to be_invalid
     end
   end
 
