@@ -1,16 +1,7 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
 
-const Helloworld = (props) => {
-  return (
-    <React.Fragment>
-      Greeting: {props.greeting}
-    </React.Fragment>
-  )
+function   ButtonNavigation({ navigation }) {
+  return <React.Fragment>{navigation}</React.Fragment>;
 }
 
-Helloworld.propTypes = {
-  greeting: PropTypes.string
-};
-
-export default Helloworld
+export default ButtonNavigation;
